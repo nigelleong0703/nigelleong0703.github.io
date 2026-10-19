@@ -154,6 +154,9 @@ section.work, section.about, section.experience, section.contact { padding: 40px
 .pipeline li:not(:last-child)::after { content: none; }
 .pipeline strong { display: block; color: var(--ink); font-size: 14px; margin-bottom: 2px; }
 .pipeline span { display: block; }
+.juno-notes { margin-top: 32px; padding-top: 20px; border-top: 1px solid var(--line); }
+.juno-notes h4 { font-size: 18px; margin: 16px 0 8px; }
+.juno-notes .measure-list { margin-bottom: 24px; }
 .branch-note { font-size: 14px; color: var(--muted); }
 .metrics-line { font-size: 15px; }
 .metrics-line strong { font-size: 17px; font-variant-numeric: tabular-nums; }

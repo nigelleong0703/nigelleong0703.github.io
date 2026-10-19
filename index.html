@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title data-en="Nigel Leong — AI engineer, Singapore" data-zh="梁证皓 — AI 工程师，新加坡">Nigel Leong — AI engineer, Singapore</title>
 <meta name="description" data-en="Nigel Leong, AI engineer in Singapore. Juno persistent agent workspace, Pilot browser harness, Taiji-2B tool-call research." data-zh="梁证皓，新加坡 AI 工程师。Juno 持久化智能体工作空间、Pilot 浏览器执行层、Taiji-2B 工具调用研究。" content="Nigel Leong, AI engineer in Singapore. Juno persistent agent workspace, Pilot browser harness, Taiji-2B tool-call research." />
-<link rel="stylesheet" href="styles.css?v=259173b" />
+<link rel="stylesheet" href="styles.css?v=20261019-copy" />
 <script src="script.js?v=259173b" defer></script>
 </head>
 <body>
@@ -49,7 +49,7 @@
 <p data-en="I’m an AI engineer in Singapore building Juno, a workspace where each agent has its own computer — so longer tasks stay easy to delegate, inspect, and take over from desktop or iPhone." data-zh="我是常驻新加坡的 AI 工程师，正在做 Juno：每位智能体都有自己电脑的工作空间，让耗时更长的任务更容易交付、检查和接手，在桌面或 iPhone 上跟进。">I’m an AI engineer in Singapore building Juno, a workspace where each agent has its own computer — so longer tasks stay easy to delegate, inspect, and take over from desktop or iPhone.</p>
 <p data-en="The same work produced Pilot, a browser harness shared by different agents, and Taiji-2B, research into fast tool-call decisions with a small model — the full path from models to tools to products." data-zh="同一份工作延伸出 Pilot——供不同智能体共用的浏览器执行层，以及 Taiji-2B——用小模型快速做工具调用决策的研究，覆盖从模型到工具再到产品的整条路径。">The same work produced Pilot, a browser harness shared by different agents, and Taiji-2B, research into fast tool-call decisions with a small model — the full path from models to tools to products.</p>
 <p class="hero-cta"><a class="btn-primary" href="#work" data-en="View projects" data-zh="查看项目">View projects</a></p>
-<p class="edu" data-en="NTU MSc AI · Tsinghua BEng Mechanical" data-zh="南洋理工人工智能硕士 · 清华大学机械工程本科">NTU MSc AI · Tsinghua BEng Mechanical</p>
+<p class="edu"><span data-en="Master of Science in Artificial Intelligence — Nanyang Technological University, Singapore" data-zh="南洋理工大学 · 人工智能理学硕士">Master of Science in Artificial Intelligence — Nanyang Technological University, Singapore</span><br /><span data-en="Bachelor of Engineering in Mechanical Engineering — Tsinghua University" data-zh="清华大学 · 机械工程工学学士">Bachelor of Engineering in Mechanical Engineering — Tsinghua University</span></p>
 </section>
 <section class="feature viewsec" id="home-feature" data-viewsec="home" aria-labelledby="feature-title">
 <div class="feature-copy">
@@ -106,6 +106,20 @@
 </figure>
 </div>
 </div>
+</section>
+<section class="juno-notes">
+<h4 data-en="Agent design" data-zh="Agent 设计">Agent design</h4>
+<ul class="measure-list">
+<li data-en="Persistent context. Agents keep searchable memory with links back to the conversations behind it; goals and scheduled wake-ups carry work beyond a single chat." data-zh="持续的上下文。智能体保留可检索、可追溯到原始对话的记忆，通过目标与定时唤醒，把工作延续到单次聊天之外。">Persistent context. Agents keep searchable memory with links back to the conversations behind it; goals and scheduled wake-ups carry work beyond a single chat.</li>
+<li data-en="Explicit collaboration. Assign research and review to different agents in a shared group, with mentions controlling who responds. Longer tasks can delegate work to child agents." data-zh="明确的协作。用群聊与 @ 指派调研、复核等角色，控制由谁响应；较长的任务也可以把工作委派给子智能体。">Explicit collaboration. Assign research and review to different agents in a shared group, with mentions controlling who responds. Longer tasks can delegate work to child agents.</li>
+<li data-en="Human control during execution. Inspect the working desktop, steer a running task, approve requested actions, or take over the screen and hand it back." data-zh="执行中的人类控制。查看正在工作的桌面、随时调整任务方向、批准请求，或接管屏幕后再交还给智能体。">Human control during execution. Inspect the working desktop, steer a running task, approve requested actions, or take over the screen and hand it back.</li>
+</ul>
+<h4 data-en="Infrastructure" data-zh="基础设施">Infrastructure</h4>
+<ul class="measure-list">
+<li data-en="A runtime with explicit boundaries. The agent loop is composed through model, tool, storage and computer interfaces; the API gateway, agent execution and computer lifecycle are separate services." data-zh="边界明确的运行时。Agent 循环通过模型、工具、存储与电脑接口组装；API 网关、智能体执行与电脑生命周期由不同服务负责。">A runtime with explicit boundaries. The agent loop is composed through model, tool, storage and computer interfaces; the API gateway, agent execution and computer lifecycle are separate services.</li>
+<li data-en="Durable execution. A SQL-backed runner journals completed steps, serializes work per session key, and persists waits and scheduled wake-ups for recovery after restart. The same runner supports PostgreSQL and SQLite." data-zh="持久执行。基于 SQL 的运行器记录已完成步骤，按会话键串行执行，并持久保存等待状态与定时唤醒，用于重启恢复；同一套运行器支持 PostgreSQL 与 SQLite。">Durable execution. A SQL-backed runner journals completed steps, serializes work per session key, and persists waits and scheduled wake-ups for recovery after restart. The same runner supports PostgreSQL and SQLite.</li>
+<li data-en="Separate agent desktops on shared compute. Agents under one user share a sandbox and files, with separate screens and browser profiles. Each agent gets its own working session without provisioning a full VM for every agent." data-zh="共享计算资源，独立工作桌面。同一用户下的智能体共享沙箱与文件，各有独立屏幕和浏览器配置；每位智能体拥有自己的工作会话，无需逐个部署完整虚拟机。">Separate agent desktops on shared compute. Agents under one user share a sandbox and files, with separate screens and browser profiles. Each agent gets its own working session without provisioning a full VM for every agent.</li>
+</ul>
 </section>
 </article>
 <article class="project pilot" aria-labelledby="pilot-title">
@@ -172,7 +186,7 @@
 <img class="about-photo" src="assets/portrait.jpg" alt="Portrait of Nigel Leong" data-en="Portrait of Nigel Leong" data-zh="梁证皓的照片" width="390" height="567" loading="lazy" />
 <div class="about-copy">
 <p data-en="Mechanical engineer turned AI engineer. At Pentas Vision I work on agent architecture and evaluation; previously the sole AI engineer at Antalpha for eight months." data-zh="机械工程转 AI。现在在 Pentas Vision 做智能体架构与评测；之前在 Antalpha 独自负责 AI 工程八个月。">Mechanical engineer turned AI engineer. At Pentas Vision I work on agent architecture and evaluation; previously the sole AI engineer at Antalpha for eight months.</p>
-<p class="compact" data-en="Pentas Vision, Singapore · previously Antalpha · NTU MSc AI · Tsinghua BEng Mechanical" data-zh="新加坡 Pentas Vision · 曾任职 Antalpha · 南洋理工人工智能硕士 · 清华大学机械工程本科">Pentas Vision, Singapore · previously Antalpha · NTU MSc AI · Tsinghua BEng Mechanical</p>
+<p class="compact"><span data-en="Master of Science in Artificial Intelligence — Nanyang Technological University, Singapore" data-zh="南洋理工大学 · 人工智能理学硕士">Master of Science in Artificial Intelligence — Nanyang Technological University, Singapore</span><br /><span data-en="Bachelor of Engineering in Mechanical Engineering — Tsinghua University" data-zh="清华大学 · 机械工程工学学士">Bachelor of Engineering in Mechanical Engineering — Tsinghua University</span></p>
 </div>
 </div>
 </section>
@@ -195,14 +209,14 @@
 </li>
 <li class="exp-row">
 <div class="exp-main">
-<strong data-en="Nanyang Technological University — MSc, Artificial Intelligence" data-zh="南洋理工大学——人工智能硕士">Nanyang Technological University — MSc, Artificial Intelligence</strong>
+<strong data-en="Nanyang Technological University — Master of Science in Artificial Intelligence" data-zh="南洋理工大学——人工智能理学硕士">Nanyang Technological University — Master of Science in Artificial Intelligence</strong>
 <p>GPA 4.70 / 5.00</p>
 </div>
 <p class="exp-time"><time datetime="2023">2023</time><span aria-hidden="true"> – </span><time datetime="2024">2024</time></p>
 </li>
 <li class="exp-row">
 <div class="exp-main">
-<strong data-en="Tsinghua University — BEng, Mechanical Engineering" data-zh="清华大学——机械工程本科">Tsinghua University — BEng, Mechanical Engineering</strong>
+<strong data-en="Tsinghua University — Bachelor of Engineering in Mechanical Engineering" data-zh="清华大学——机械工程工学学士">Tsinghua University — Bachelor of Engineering in Mechanical Engineering</strong>
 <p>GPA 3.68 / 4.00</p>
 </div>
 <p class="exp-time"><time datetime="2019">2019</time><span aria-hidden="true"> – </span><time datetime="2023">2023</time></p>
