@@ -174,6 +174,7 @@
 <p class="proj-kicker" data-en="Model research" data-zh="模型研究">Model research</p>
 <h3 id="taiji-title">Taiji-2B</h3>
 <p class="standfirst" data-en="Fast tool-call decisions with a small model, escalating to a larger one when unsure." data-zh="用小模型快速做工具调用决策，不确定时再交给大模型。">Fast tool-call decisions with a small model, escalating to a larger one when unsure.</p>
+<p data-en="Inspired by TypeSafe’s Jev and its System One approach: fast, structured decisions with probabilities that software can act on. Taiji-2B explores this idea for agent tool calls." data-zh="灵感来自 TypeSafe 的 Jev 及其 System One 思路：快速输出结构化决策与概率，交由程序执行。Taiji-2B 将这一思路用于 Agent 的工具调用决策。">Inspired by TypeSafe’s Jev and its System One approach: fast, structured decisions with probabilities that software can act on. Taiji-2B explores this idea for agent tool calls.</p>
 <p data-en="Taiji-2B is Qwen3.5-2B with a rank-16 LoRA and a decision head, trained on 60,395 rows. Each decision takes one forward pass and returns calibrated probabilities over exactly your options." data-zh="Taiji-2B 基于 Qwen3.5-2B，加上 rank-16 LoRA 与决策头，训练数据 60,395 行。每次决策只需一次前向传播，在你给出的选项上返回校准后的概率。">Taiji-2B is Qwen3.5-2B with a rank-16 LoRA and a decision head, trained on 60,395 rows. Each decision takes one forward pass and returns calibrated probabilities over exactly your options.</p>
 <ol class="pipeline">
 <li><strong data-en="Input" data-zh="输入">Input</strong><span data-en="State + questions: text, JSON, optional screenshot, with the allowed options." data-zh="状态与问题：文本、JSON、可选截图，附带允许的选项。">State + questions: text, JSON, optional screenshot, with the allowed options.</span></li>
@@ -193,6 +194,7 @@
 <p class="link-row">
 <a href="https://github.com/nigelleong0703/Taiji" target="_blank" rel="noopener noreferrer" data-en="GitHub repository" data-zh="GitHub 仓库">GitHub repository</a>
 <a href="https://huggingface.co/nigelleong0703/Taiji-2B" target="_blank" rel="noopener noreferrer" data-en="Model weights" data-zh="模型权重">Model weights</a>
+<a href="https://docs.typesafe.ai/concepts/system-one" target="_blank" rel="noopener noreferrer" data-en="Jev · inspiration" data-zh="灵感来源 · Jev">Jev · inspiration</a>
 </p>
 </article>
 </section>
