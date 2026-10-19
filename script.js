@@ -244,6 +244,8 @@
       lastFocus = null;
     }
     toggle.addEventListener("click", function () { if (isOpen()) { closeNav(); } else { openNav(); } });
+    var close = document.getElementById("nav-close");
+    if (close) { close.addEventListener("click", closeNav); }
     if (backdrop) { backdrop.addEventListener("click", function () { closeNav(); }); }
     header.addEventListener("click", function (ev) {
       var t = ev.target;
