@@ -138,6 +138,11 @@ section.work, section.about, section.experience, section.contact { padding: 40px
 .dynamo-case.stage { margin-top: 24px; border: 0; border-top: 1px solid var(--line); border-radius: 0; background: none; padding: 24px 0 0; }
 .dynamo-case h4 { font-size: 20px; letter-spacing: -0.01em; font-weight: 700; margin: 0 0 4px; }
 .dynamo-sub { display: block; font-size: 14px; color: var(--muted); font-weight: 600; margin-top: 2px; }
+.computer-use-lead { margin-top: 20px; max-width: 900px; }
+.computer-use-lead h5 { font-size: 15px; margin: 0 0 6px; }
+.computer-use-lead > p { font-size: 14px; color: var(--muted); margin: 0 0 8px; max-width: 65ch; }
+.computer-use-shot { margin: 12px 0 0; }
+.computer-use-video { width: 100%; max-width: 900px; aspect-ratio: 16 / 10; background: #000; display: block; }
 .dynamo-duo { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 20px; min-width: 0; align-items: stretch; }
 .dynamo-item { display: flex; flex-direction: column; min-width: 0; }
 .dynamo-item h5 { font-size: 15px; margin: 0 0 6px; }
