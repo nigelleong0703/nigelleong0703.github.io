@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title data-en="Nigel Leong — AI engineer, Singapore" data-zh="梁证皓 — AI 工程师，新加坡">Nigel Leong — AI engineer, Singapore</title>
 <meta name="description" data-en="Nigel Leong, AI engineer in Singapore. Juno persistent agent workspace, Pilot browser harness, Taiji-2B tool-call research." data-zh="梁证皓，新加坡 AI 工程师。Juno 持久化智能体工作空间、Pilot 浏览器执行层、Taiji-2B 工具调用研究。" content="Nigel Leong, AI engineer in Singapore. Juno persistent agent workspace, Pilot browser harness, Taiji-2B tool-call research." />
-<link rel="stylesheet" href="styles.css?v=20261019-copy" />
+<link rel="stylesheet" href="styles.css?v=20261019-notes" />
 <script src="script.js?v=259173b" defer></script>
 </head>
 <body>
@@ -81,6 +81,11 @@
 <p class="standfirst" data-en="A workspace for agents, each with their own computer." data-zh="每位智能体都拥有自己电脑的工作空间。">A workspace for agents, each with their own computer.</p>
 <p class="meta" data-en="In development · planned open source" data-zh="开发中 · 计划开源">In development · planned open source</p>
 <p data-en="Give an agent a task and follow its work from your desktop or iPhone. Inspect its computer, approve requested actions, and open the files it produces." data-zh="给智能体一个任务，在桌面或 iPhone 上跟进执行。你可以查看它的电脑、批准请求，并打开它产出的文件。">Give an agent a task and follow its work from your desktop or iPhone. Inspect its computer, approve requested actions, and open the files it produces.</p>
+<section class="juno-notes" aria-label="How Juno works" data-aria-en="How Juno works" data-aria-zh="Juno 如何工作">
+<p data-en="Long tasks keep a persistent plan and can delegate work to subagents. The harness checks unfinished tasks, active children and user-configured completion checks before accepting the result. Failed checks lead to another attempt or an explicit blocked state; you can steer the work as it runs." data-zh="长任务保留持续更新的计划，也能把工作委派给子 Agent。Harness 在收尾时检查未完成任务、仍在运行的子 Agent，以及用户配置的验收检查；检查失败就继续尝试，或明确报告阻塞原因。执行途中，你也能随时调整方向。">Long tasks keep a persistent plan and can delegate work to subagents. The harness checks unfinished tasks, active children and user-configured completion checks before accepting the result. Failed checks lead to another attempt or an explicit blocked state; you can steer the work as it runs.</p>
+<p data-en="Each user has their own memory, shared across their agents with agent-specific guidance. New memories need source quotes that code checks against the original messages. You can search what Juno remembers, inspect where it came from, and remove it from long-term memory." data-zh="每位用户都有自己的记忆，由其智能体共享，并保留针对不同智能体的相处指引。新记忆需要引用来源，由代码核对原始消息。你可以检索 Juno 记住了什么、查看来源，并将它从长期记忆中移除。">Each user has their own memory, shared across their agents with agent-specific guidance. New memories need source quotes that code checks against the original messages. You can search what Juno remembers, inspect where it came from, and remove it from long-term memory.</p>
+<p data-en="Nightly “dreaming” reviews conversations, measured writing habits and your corrections. It consolidates memories and updates guidance on language, tone and length, so later conversations can reflect how you prefer to work." data-zh="夜间的 dreaming 会回看对话、统计表达习惯，并整理你对回答的纠正；合并记忆，更新语言、语气与篇幅指引，让之后的协作逐渐贴近你的习惯。">Nightly “dreaming” reviews conversations, measured writing habits and your corrections. It consolidates memories and updates guidance on language, tone and length, so later conversations can reflect how you prefer to work.</p>
+</section>
 <section class="dynamo-case stage" id="dynamo-case" aria-labelledby="dynamo-title">
 <h4 id="dynamo-title"><span data-en="Price comparison in Juno" data-zh="Juno 中的一次比价">Price comparison in Juno</span><span class="dynamo-sub" data-en="A real Dynamo task, recorded Oct 2026" data-zh="真实的 Dynamo 任务，2026 年 10 月实录">A real Dynamo task, recorded Oct 2026</span></h4>
 <div class="dynamo-duo">
@@ -107,20 +112,7 @@
 </div>
 </div>
 </section>
-<section class="juno-notes">
-<h4 data-en="Agent design" data-zh="Agent 设计">Agent design</h4>
-<ul class="measure-list">
-<li data-en="Persistent context. Agents keep searchable memory with links back to the conversations behind it; goals and scheduled wake-ups carry work beyond a single chat." data-zh="持续的上下文。智能体保留可检索、可追溯到原始对话的记忆，通过目标与定时唤醒，把工作延续到单次聊天之外。">Persistent context. Agents keep searchable memory with links back to the conversations behind it; goals and scheduled wake-ups carry work beyond a single chat.</li>
-<li data-en="Explicit collaboration. Assign research and review to different agents in a shared group, with mentions controlling who responds. Longer tasks can delegate work to child agents." data-zh="明确的协作。用群聊与 @ 指派调研、复核等角色，控制由谁响应；较长的任务也可以把工作委派给子智能体。">Explicit collaboration. Assign research and review to different agents in a shared group, with mentions controlling who responds. Longer tasks can delegate work to child agents.</li>
-<li data-en="Human control during execution. Inspect the working desktop, steer a running task, approve requested actions, or take over the screen and hand it back." data-zh="执行中的人类控制。查看正在工作的桌面、随时调整任务方向、批准请求，或接管屏幕后再交还给智能体。">Human control during execution. Inspect the working desktop, steer a running task, approve requested actions, or take over the screen and hand it back.</li>
-</ul>
-<h4 data-en="Infrastructure" data-zh="基础设施">Infrastructure</h4>
-<ul class="measure-list">
-<li data-en="A runtime with explicit boundaries. The agent loop is composed through model, tool, storage and computer interfaces; the API gateway, agent execution and computer lifecycle are separate services." data-zh="边界明确的运行时。Agent 循环通过模型、工具、存储与电脑接口组装；API 网关、智能体执行与电脑生命周期由不同服务负责。">A runtime with explicit boundaries. The agent loop is composed through model, tool, storage and computer interfaces; the API gateway, agent execution and computer lifecycle are separate services.</li>
-<li data-en="Durable execution. A SQL-backed runner journals completed steps, serializes work per session key, and persists waits and scheduled wake-ups for recovery after restart. The same runner supports PostgreSQL and SQLite." data-zh="持久执行。基于 SQL 的运行器记录已完成步骤，按会话键串行执行，并持久保存等待状态与定时唤醒，用于重启恢复；同一套运行器支持 PostgreSQL 与 SQLite。">Durable execution. A SQL-backed runner journals completed steps, serializes work per session key, and persists waits and scheduled wake-ups for recovery after restart. The same runner supports PostgreSQL and SQLite.</li>
-<li data-en="Separate agent desktops on shared compute. Agents under one user share a sandbox and files, with separate screens and browser profiles. Each agent gets its own working session without provisioning a full VM for every agent." data-zh="共享计算资源，独立工作桌面。同一用户下的智能体共享沙箱与文件，各有独立屏幕和浏览器配置；每位智能体拥有自己的工作会话，无需逐个部署完整虚拟机。">Separate agent desktops on shared compute. Agents under one user share a sandbox and files, with separate screens and browser profiles. Each agent gets its own working session without provisioning a full VM for every agent.</li>
-</ul>
-</section>
+
 </article>
 <article class="project pilot" aria-labelledby="pilot-title">
 <p class="proj-no" aria-hidden="true">02</p>
