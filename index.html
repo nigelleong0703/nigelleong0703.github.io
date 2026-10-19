@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title data-en="Nigel Leong — AI engineer, Singapore" data-zh="梁证皓 — AI 工程师，新加坡">Nigel Leong — AI engineer, Singapore</title>
 <meta name="description" data-en="Nigel Leong, AI engineer in Singapore. Juno persistent agent workspace, Pilot browser harness, Taiji-2B tool-call research." data-zh="梁证皓，新加坡 AI 工程师。Juno 持久化智能体工作空间、Pilot 浏览器执行层、Taiji-2B 工具调用研究。" content="Nigel Leong, AI engineer in Singapore. Juno persistent agent workspace, Pilot browser harness, Taiji-2B tool-call research." />
-<link rel="stylesheet" href="styles.css?v=20261019-computeruse" />
+<link rel="stylesheet" href="styles.css?v=20261019-memory-fullphone" />
 <script src="script.js?v=259173b" defer></script>
 </head>
 <body>
@@ -85,18 +85,32 @@
 <p data-en="Long tasks keep a persistent plan and can delegate work to subagents. The harness checks unfinished tasks, active children and user-configured completion checks before accepting the result. Failed checks lead to another attempt or an explicit blocked state; you can steer the work as it runs." data-zh="长任务保留持续更新的计划，也能把工作委派给子 Agent。Harness 在收尾时检查未完成任务、仍在运行的子 Agent，以及用户配置的验收检查；检查失败就继续尝试，或明确报告阻塞原因。执行途中，你也能随时调整方向。">Long tasks keep a persistent plan and can delegate work to subagents. The harness checks unfinished tasks, active children and user-configured completion checks before accepting the result. Failed checks lead to another attempt or an explicit blocked state; you can steer the work as it runs.</p>
 <p data-en="Each user has their own memory, shared across their agents with agent-specific guidance. New memories need source quotes that code checks against the original messages. You can search what Juno remembers, inspect where it came from, and remove it from long-term memory." data-zh="每位用户都有自己的记忆，由其智能体共享，并保留针对不同智能体的相处指引。新记忆需要引用来源，由代码核对原始消息。你可以检索 Juno 记住了什么、查看来源，并将它从长期记忆中移除。">Each user has their own memory, shared across their agents with agent-specific guidance. New memories need source quotes that code checks against the original messages. You can search what Juno remembers, inspect where it came from, and remove it from long-term memory.</p>
 <p data-en="Nightly “dreaming” reviews conversations, measured writing habits and your corrections. It consolidates memories and updates guidance on language, tone and length, so later conversations can reflect how you prefer to work." data-zh="夜间的 dreaming 会回看对话、统计表达习惯，并整理你对回答的纠正；合并记忆，更新语言、语气与篇幅指引，让之后的协作逐渐贴近你的习惯。">Nightly “dreaming” reviews conversations, measured writing habits and your corrections. It consolidates memories and updates guidance on language, tone and length, so later conversations can reflect how you prefer to work.</p>
+<p data-en="Each user’s sandbox shares files across separate agent desktops and browser profiles, with live takeover. Private input travels encrypted from the phone to the sandbox helper. Vault values are stored in the phone’s Keychain; the server stores entry labels, and the agent receives fill status." data-zh="同一用户的沙箱共享文件，每位智能体有独立桌面与浏览器配置，并支持实时接管。私密输入从手机加密发送到沙箱助手；Vault 的值保存在手机 Keychain 中，服务端保存条目标签，智能体收到的是填入状态。">Each user’s sandbox shares files across separate agent desktops and browser profiles, with live takeover. Private input travels encrypted from the phone to the sandbox helper. Vault values are stored in the phone’s Keychain; the server stores entry labels, and the agent receives fill status.</p>
 </section>
 <section class="dynamo-case stage" id="dynamo-case" aria-labelledby="dynamo-title">
-<h4 id="dynamo-title"><span data-en="Price comparison in Juno" data-zh="Juno 中的一次比价">Price comparison in Juno</span><span class="dynamo-sub" data-en="A real Dynamo task, recorded Oct 2026" data-zh="真实的 Dynamo 任务，2026 年 10 月实录">A real Dynamo task, recorded Oct 2026</span></h4>
+<h4 id="dynamo-title"><span data-en="Juno in use" data-zh="Juno 实录">Juno in use</span><span class="dynamo-sub" data-en="Computer use, memory and collaboration · October 2026" data-zh="电脑操作、记忆与协作 · 2026 年 10 月实录">Computer use, memory and collaboration · October 2026</span></h4>
 <div class="computer-use-lead">
-<h5><span data-en="Watching the work happen" data-zh="看到实际执行过程">Watching the work happen</span></h5>
-<p data-en="A fresh Dynamo lookup: Juno opens and reads product pages in its own browser while I watch from the iOS Simulator." data-zh="一次新的 Dynamo 查价：Juno 在自己的浏览器里打开并阅读商品页面，我在 iOS 模拟器里看着它执行。">A fresh Dynamo lookup: Juno opens and reads product pages in its own browser while I watch from the iOS Simulator.</p>
+<h5><span data-en="Complete phone recordings" data-zh="完整手机屏幕实录">Complete phone recordings</span></h5>
+<p data-en="Follow a fresh Dynamo task from chat to the working computer, then explore memory and learned reply style in the app." data-zh="跟随一次新的 Dynamo 任务，从聊天进入工作的电脑；再查看应用里的记忆与习得的回复风格。">Follow a fresh Dynamo task from chat to the working computer, then explore memory and learned reply style in the app.</p>
+<div class="juno-live-demos">
+<div class="live-demo">
 <figure class="shot computer-use-shot">
-<video class="computer-use-video" controls playsinline preload="none" poster="assets/juno-computer-use.jpg" data-aria-en="Replay: Juno opening and reading product pages in its own browser" data-aria-zh="回放：Juno 在自己的浏览器里打开并阅读商品页面" aria-label="Replay: Juno opening and reading product pages in its own browser">
-<source src="assets/juno-computer-use.mp4" type="video/mp4" />
+<video class="computer-use-video" controls playsinline preload="none" poster="assets/juno-computer-use.jpg?v=20261019-fullphone" data-aria-en="Replay: Juno opening and reading product pages in its own browser" data-aria-zh="回放：Juno 在自己的浏览器里打开并阅读商品页面" aria-label="Replay: Juno opening and reading product pages in its own browser">
+<source src="assets/juno-computer-use.mp4?v=20261019-fullphone" type="video/mp4" />
 </video>
-<figcaption><span class="cap-main" data-en="Juno doing the lookup in its own browser" data-zh="Juno 在自己的浏览器里查价">Juno doing the lookup in its own browser</span><span class="cap-src" data-en="19 Oct 2026 · live computer stream recorded in iOS Simulator · cropped for readability; pauses shortened." data-zh="2026 年 10 月 19 日 · iOS 模拟器实录电脑操作 · 为清晰裁剪，停顿有缩短。">19 Oct 2026 · live computer stream recorded in iOS Simulator · cropped for readability; pauses shortened.</span></figcaption>
+<figcaption><span class="cap-main" data-en="Juno doing the lookup in its own browser" data-zh="Juno 在自己的浏览器里查价">Juno doing the lookup in its own browser</span><span class="cap-src" data-en="19 Oct 2026 · full phone recording in iOS Simulator · pauses shortened." data-zh="2026 年 10 月 19 日 · iOS 模拟器完整手机录像 · 停顿有缩短。">19 Oct 2026 · full phone recording in iOS Simulator · pauses shortened.</span></figcaption>
 </figure>
+</div>
+<div class="live-demo">
+<p class="memory-intro" data-en="Open shared memory, read existing nightly reply-style guidance, and save a preference through the user’s memory editor." data-zh="打开共享记忆，查看已有的夜间回复风格指引，并通过用户记忆编辑器保存偏好。">Open shared memory, read existing nightly reply-style guidance, and save a preference through the user’s memory editor.</p>
+<figure class="shot memory-shot">
+<video class="memory-video" controls playsinline preload="none" poster="assets/juno-memory.jpg" data-aria-en="Replay: memory and reply style in the iOS app" data-aria-zh="回放：iOS 应用中的记忆与回复风格" aria-label="Replay: memory and reply style in the iOS app">
+<source src="assets/juno-memory.mp4" type="video/mp4" />
+</video>
+<figcaption><span class="cap-main" data-en="Memory navigation, existing learned style, and a manually saved preference · 19 Oct 2026 · full phone recording; pauses shortened." data-zh="记忆导航、已有的风格学习结果，以及手动保存偏好 · 2026 年 10 月 19 日 · 完整手机录像，停顿有缩短。">Memory navigation, existing learned style, and a manually saved preference · 19 Oct 2026 · full phone recording; pauses shortened.</span></figcaption>
+</figure>
+</div>
+</div>
 </div>
 <div class="dynamo-duo">
 <div class="dynamo-item">

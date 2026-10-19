@@ -141,8 +141,14 @@ section.work, section.about, section.experience, section.contact { padding: 40px
 .computer-use-lead { margin-top: 20px; max-width: 900px; }
 .computer-use-lead h5 { font-size: 15px; margin: 0 0 6px; }
 .computer-use-lead > p { font-size: 14px; color: var(--muted); margin: 0 0 8px; max-width: 65ch; }
-.computer-use-shot { margin: 12px 0 0; }
-.computer-use-video { width: 100%; max-width: 900px; aspect-ratio: 16 / 10; background: #000; display: block; }
+.computer-use-shot { margin: 12px auto 0; max-width: 340px; text-align: center; }
+.computer-use-video { width: 100%; max-width: 340px; aspect-ratio: 9 / 19.5; background: #000; display: block; margin: 0 auto; object-fit: contain; }
+.juno-live-demos { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 12px; align-items: start; }
+.live-demo { min-width: 0; }
+.memory-intro { font-size: 14px; color: var(--muted); margin: 0 0 8px; max-width: 56ch; }
+.memory-shot { margin: 12px auto 0; max-width: 340px; text-align: center; }
+.memory-video { width: 100%; max-width: 340px; aspect-ratio: 9 / 19.5; background: #000; display: block; margin: 0 auto; object-fit: contain; }
+.computer-use-shot figcaption, .memory-shot figcaption { text-align: center; }
 .dynamo-duo { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 20px; min-width: 0; align-items: stretch; }
 .dynamo-item { display: flex; flex-direction: column; min-width: 0; }
 .dynamo-item h5 { font-size: 15px; margin: 0 0 6px; }
@@ -215,6 +221,7 @@ dialog#lightbox[open] figure { animation: popIn var(--duration-default) var(--ea
 .mobile-bar, .nav-backdrop { display: none; }
 @media (max-width: 900px) {
   .dynamo-duo { grid-template-columns: 1fr; max-width: 420px; margin-left: auto; margin-right: auto; }
+  .juno-live-demos { grid-template-columns: 1fr; max-width: 420px; margin-left: auto; margin-right: auto; }
   .feature { grid-template-columns: 1fr; }
   .feature-media { max-width: 560px; }
 }
