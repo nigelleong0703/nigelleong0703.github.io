@@ -1,275 +1,312 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-type="software" data-radius="soft" data-ground="sage" data-buttons="solid" data-motion>
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title data-en="Nigel Leong — AI engineer, Singapore" data-zh="梁证皓 — AI 工程师，新加坡">Nigel Leong — AI engineer, Singapore</title>
-<meta name="description" data-en="Nigel Leong, AI engineer in Singapore. Juno persistent agent workspace, Pilot browser harness, Taiji-2B tool-call research." data-zh="梁证皓，新加坡 AI 工程师。Juno 持久化智能体工作空间、Pilot 浏览器执行层、Taiji-2B 工具调用研究。" content="Nigel Leong, AI engineer in Singapore. Juno persistent agent workspace, Pilot browser harness, Taiji-2B tool-call research." />
-<link rel="stylesheet" href="styles.css?v=20261019-memory-fullphone2" />
-<script src="script.js?v=259173b" defer></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title data-en="Nigel Leong: AI engineer in Singapore, builder of Juno" data-zh="梁证皓：新加坡 AI 工程师，Juno 的作者">Nigel Leong: AI engineer in Singapore, builder of Juno</title>
+<meta name="description" data-en="Nigel Leong builds Juno, a self-hosted team of personal AI agents, plus Pilot, a browser harness, and Taiji-2B, a small decision model." data-zh="梁证皓在做 Juno：可自托管的个人 AI 智能体团队；另有浏览器执行层 Pilot 与小型决策模型 Taiji-2B。" content="Nigel Leong builds Juno, a self-hosted team of personal AI agents, plus Pilot, a browser harness, and Taiji-2B, a small decision model.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Nigel Leong: AI engineer in Singapore, builder of Juno">
+<meta property="og:description" content="Juno, Pilot and Taiji-2B: agent software by Nigel Leong.">
+<meta property="og:image" content="share.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#111111">
+<!-- <link rel="canonical" href="https://nigelleong0703.github.io/"> : add once the domain is confirmed -->
+<meta name="site-kind" content="software">
+<meta name="page-type" content="software">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Reddit+Sans:wght@400..700&family=JetBrains+Mono:wght@400..500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/kit/system.css">
+<link rel="stylesheet" href="assets/kit/ui/cards.css">
+<link rel="stylesheet" href="assets/kit/motion/motion.css">
+<link rel="stylesheet" href="assets/kit/backgrounds/backgrounds.css">
+<link rel="stylesheet" href="assets/kit/layout/layout.css">
+<link rel="stylesheet" href="assets/kit/icons/icon.css">
+<style>
+:root {
+  --p-bg: #111111; --p-surface: #1c1c1c; --p-ink: #f2f2f2; --p-muted: #8f8f8f;
+  --p-accent: #a08672; --p-accent-ink: #111111; --p-action: #a08672; --p-action-ink: #111111;
+  --p-inv-bg: #f2f2f2; --p-inv-surface: #e0e0e0; --p-inv-ink: #111111; --p-inv-muted: #5c5c5c;
+  --p-inv-accent: #a08672; --p-inv-accent-ink: #111111; --p-inv-action: #a08672; --p-inv-action-ink: #111111;
+  --font-display: "Reddit Sans", system-ui, sans-serif;
+  --font-text: "Reddit Sans", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --display-weight: 500;
+  --display-tracking: -0.03em;
+  --display-tracking-xl: -0.04em;
+}
+</style>
+<link rel="stylesheet" href="assets/kit/ui/base.css">
+<link rel="stylesheet" href="assets/kit/ui/checklist/fragment.css">
+<link rel="stylesheet" href="assets/kit/ui/notify/fragment.css">
+<link rel="stylesheet" href="assets/kit/diagrams/diagram.css">
+<script>document.documentElement.classList.add('m-enter');setTimeout(()=>document.documentElement.classList.add('m-enter-done'),700)</script>
+<script src="assets/kit/backgrounds/backgrounds.js"></script>
+<script>document.documentElement.classList.add('mo-js');setTimeout(()=>document.documentElement.classList.add('mo-safe'),2500)</script>
+<link rel="modulepreload" href="assets/kit/moments/moments.js">
+<link rel="modulepreload" href="assets/kit/moments/lib.js">
+<link rel="modulepreload" href="assets/kit/moments/pinned-chapters/moment.js">
+<!-- page CSS: only what sits inside a visual, the phones (.device) and one --p-h per card group -->
+<style>
+  /* the phone: an 8px bezel round the client's own iOS screen */
+  .device { width: var(--dev-w, 280px); padding: 8px; border-radius: 32px; background: #0b0b0b;
+            box-shadow: 0 0 0 1px rgb(255 255 255 / .14), 0 24px 60px -28px rgb(0 0 0 / .7); }
+  .device > img { display: block; width: 100%; height: auto; border-radius: 24px; }
+  /* hero art: the phone on the right of the dither ground, cut by the frame's bottom; the plan card over its lower left */
+  .hero__art > .ly-piece--main.device { --dev-w: 320px; left: auto; right: var(--s-8); top: var(--s-8); width: var(--dev-w); }
+  .hero__art > .ly-piece--note { left: var(--s-6); bottom: var(--s-6); width: 300px; z-index: 2; }
+  .hero__art .loop-pause:focus-visible { outline: 2px solid #111; outline-offset: 2px; box-shadow: 0 0 0 4px #fff; }
+  /* the closing byline: text on the container line, the small portrait after it */
+  .nav .nav__logo img { width: 24px; height: 24px; border-radius: 999px; object-fit: cover; flex: none; }
+  .hero__proof { font-size: var(--t-small); color: var(--muted); }
+  @media (max-width: 1279px) { .hero__art > .ly-piece--note { width: 260px; } }
+  @media (min-width: 1024px) and (max-width: 1279px) { .hero__art > .ly-piece--note { display: none; } }
+  @media (max-width: 1023px) { .hero__art > .ly-piece--main.device { --dev-w: 280px; right: auto; left: calc(50% - 140px); top: var(--s-6); } }
+  @media (max-width: 639px) { .hero__art > .ly-piece--main.device { --dev-w: 260px; left: calc(50% - 130px); top: var(--s-4); } }
+  /* Juno (pinned chapters): each step's phone screen, whole, centred in the lit frame */
+  #juno .mo-pc__visual--lit .juno-shot { display: block; height: 100%; width: auto; max-width: 100%; aspect-ratio: auto; object-fit: contain; border-radius: 22px; box-shadow: 0 0 0 1px rgb(255 255 255 / .14), 0 24px 60px -28px rgb(0 0 0 / .7); }
+  #juno .mo-pc__visual--lit .ui-notify { width: min(380px, 100%); }
+  #juno .juno-links { margin-top: var(--s-4); }
+  @media (max-width: 639px) { #juno .mo-pc__visual--lit { aspect-ratio: 16 / 9; padding: var(--s-3); } .footer__col--page { display: none; } }
+  /* Pilot: the recorder panel of the screenshot, cut by the frame's right and bottom */
+  .pilot-shot { width: 600px; border-radius: 12px; overflow: hidden; background: #fff; box-shadow: 0 0 0 1px rgb(0 0 0 / .1), 0 24px 60px -28px rgb(0 0 0 / .45); }
+  .pilot-shot > img { display: block; width: 1118px; max-width: none; height: auto; margin-left: -559px; }
+  /* Taiji: the decision diagram across the wrap */
+  #taiji .frame.fill { padding: 0; }
+  #taiji .frame.fill > .dg { position: absolute; inset: 0; }
+  @media (min-width: 640px) and (max-width: 1023px) { #taiji .frame.fill { min-height: 320px; } }
+  @media (max-width: 639px) { #taiji .frame.fill { min-height: 440px; } }
+  .footer__col a { overflow-wrap: anywhere; }
+  /* experience: the Sony coding agent's loop beside the rows */
+  #experience { --g-screen: 100svh; }
+  @media (max-width: 639px) { #taiji { --g-screen: 200lvh; --hm: 2; } #experience .exp-dg { display: none; } }
+  @media (min-width: 640px) and (max-width: 1023px) { #experience .exp-dg { min-height: 290px; } }
+  #experience .exp-dg { padding: 0; min-height: 420px; }
+  #experience .exp-dg > .dg { position: absolute; inset: 0; }
+  /* the language switch sits with the nav's words */
+  .lang-toggle { border: 0; background: none; font: inherit; color: inherit; cursor: pointer; }
+  /* a head row: the h2 on five columns, its line from the split line, 48px over the content */
+  .head-grid { margin-bottom: var(--head-gap); }
+  .arch-line { font-family: var(--font-mono); font-size: var(--t-small); }
+  #taiji .taiji-facts { margin-top: var(--s-7); }
+  .menu-card .panel > img.frame__img { object-fit: contain; padding: var(--s-4); }
+</style>
+<script src="script.js" defer></script>
 </head>
 <body>
-<a class="skip" href="#main" data-en="Skip to content" data-zh="跳转到正文">Skip to content</a>
-<div class="mobile-bar">
-<button type="button" id="nav-toggle" class="icon-btn" aria-controls="site-header" aria-expanded="false" data-aria-en="Open navigation" data-aria-zh="打开导航" aria-label="Open navigation"><svg class="icon" viewBox="0 0 16 16" width="20" height="20" aria-hidden="true" focusable="false"><path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/></svg></button>
-<span class="mobile-brand"><span data-en="Nigel Leong" data-zh="梁证皓">Nigel Leong</span></span>
-</div>
-<div class="nav-backdrop" id="nav-backdrop" hidden></div>
-<div class="layout">
-<header class="site-header" id="site-header">
-<div class="sidebar" id="sidebar">
-<button type="button" id="nav-close" class="nav-close" data-en="Close" data-zh="关闭" data-aria-en="Close navigation" data-aria-zh="关闭导航" aria-label="Close navigation">Close</button>
-<a class="brand" href="#top"><img class="brand-photo" src="assets/portrait.jpg" alt="Portrait of Nigel Leong" data-en="Portrait of Nigel Leong" data-zh="梁证皓的照片" width="112" height="112" /><span class="brand-text"><span class="brand-name" data-en="Nigel Leong" data-zh="梁证皓">Nigel Leong</span><span class="brand-role" data-en="AI engineer · Singapore" data-zh="AI 工程师 · 新加坡">AI engineer · Singapore</span></span></a>
-<nav aria-label="Primary navigation" data-aria-en="Primary navigation" data-aria-zh="主导航">
-<ul class="nav-list" id="primary-nav">
-<li><a href="#top" data-aria-en="Home" data-aria-zh="主页" aria-label="Home"><svg class="icon" viewBox="0 0 16 16" width="17" height="17" aria-hidden="true" focusable="false"><path d="M2.5 7.2 8 2.5l5.5 4.7M4 6.6v6.9h8V6.6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg><span class="label" data-en="Home" data-zh="主页">Home</span></a></li>
-<li><a href="#work" data-aria-en="Projects" data-aria-zh="项目" aria-label="Projects"><svg class="icon" viewBox="0 0 16 16" width="17" height="17" aria-hidden="true" focusable="false"><path d="M2.5 2.5h5v5h-5zM8.5 2.5h5v5h-5zM2.5 8.5h5v5h-5zM8.5 8.5h5v5h-5z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" fill="none"/></svg><span class="label" data-en="Projects" data-zh="项目">Projects</span></a></li>
-<li><a href="#experience" data-aria-en="Experience" data-aria-zh="经历" aria-label="Experience"><svg class="icon" viewBox="0 0 16 16" width="17" height="17" aria-hidden="true" focusable="false"><path d="M2.5 5h11v8h-11zM5.5 5V3.5h5V5M2.5 8.5h11" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg><span class="label" data-en="Experience" data-zh="经历">Experience</span></a></li>
-<li><a href="#about" data-aria-en="About" data-aria-zh="关于" aria-label="About"><svg class="icon" viewBox="0 0 16 16" width="17" height="17" aria-hidden="true" focusable="false"><circle cx="8" cy="5.4" r="2.6" stroke="currentColor" stroke-width="1.4" fill="none"/><path d="M2.8 13.5c1-3 3-4.2 5.2-4.2s4.2 1.2 5.2 4.2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" fill="none"/></svg><span class="label" data-en="About" data-zh="关于">About</span></a></li>
-<li><a href="#contact" data-aria-en="Contact" data-aria-zh="联系" aria-label="Contact"><svg class="icon" viewBox="0 0 16 16" width="17" height="17" aria-hidden="true" focusable="false"><path d="M2 4.5h12v7H2zM2.5 5.2 8 9.2l5.5-4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg><span class="label" data-en="Contact" data-zh="联系">Contact</span></a></li>
-</ul>
-</nav>
-<ul class="connect-list">
-<li><a href="https://github.com/nigelleong0703" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-<li><a href="https://www.linkedin.com/in/nigelleongzhenghao/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-<li><a href="mailto:nigelleong0703@outlook.com" data-en="Email" data-zh="邮件">Email</a></li>
-</ul>
-<div class="lang-switch" role="group" aria-label="Language / 语言">
-<button type="button" id="lang-en" aria-pressed="true" data-aria-en="Switch to English" data-aria-zh="切换为英文" aria-label="Switch to English">EN</button>
-<button type="button" id="lang-zh" aria-pressed="false" lang="zh-CN" data-aria-en="Switch to Chinese" data-aria-zh="切换为中文" aria-label="Switch to Chinese">中文</button>
-</div>
-<button type="button" id="sidebar-collapse" class="collapse-btn" aria-expanded="true" data-aria-en="Collapse sidebar" data-aria-zh="收起侧边栏" aria-label="Collapse sidebar"><svg class="icon" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true" focusable="false"><path d="M10 3 5 8l5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg><span class="collapse-label" data-en="Collapse" data-zh="收起">Collapse</span></button>
-</div>
+<!-- type: software (site-kind software: an AI engineer's portfolio whose subject is agent software)
+     deal: hero collage, palette lunar-grey-bronze, pairing reddit (Reddit Sans + JetBrains Mono), nav nav-mega,
+           close close-type (re-dealt from close-word: the client asked for no large name), footer footer-dark, rhythm dark-band (Pilot on the inverse ground), buttons solid,
+           mark stack, lit ground sage, grounds juno bg-mist and experience bg-dots
+     effect: bayer-dither (named in the brief) as the hero art's ground; card ground gradient-mesh (Juno's panels, still)
+     diagrams: Taiji decision (free), Sony coding agent (timeline)
+     moments: pinned-chapters in Juno (the four things Juno does, one phone screen each)
+     screens: hero 1, juno 2 (pinned), pilot 1, taiji 1, experience 1, footer.closing 1 -->
+
+<header class="nav">
+  <div class="wrap nav__bar">
+    <a class="skip-link" href="#top" data-en="Skip to content" data-zh="跳到正文">Skip to content</a>
+    <a class="nav__logo" href="#top"><img src="assets/portrait.jpg" alt="" width="24" height="24" data-source="client" data-subject="Nigel Leong"><span data-en="Nigel Leong" data-zh="梁证皓">Nigel Leong</span></a>
+    <nav class="nav__links" aria-label="Main" data-aria-en="Main" data-aria-zh="主导航">
+      <div class="nav__item"><a class="nav__link" href="#pilot">Pilot</a></div>
+      <div class="nav__item"><a class="nav__link" href="#taiji">Taiji-2B</a></div>
+      <div class="nav__item"><a class="nav__link" href="#experience" data-en="Experience" data-zh="经历">Experience</a></div>
+      <div class="nav__item">
+        <a class="nav__link" href="https://github.com/nigelleong0703"><span data-en="Code" data-zh="代码">Code</span> <svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="nav__menu">
+          <div class="wrap grid">
+            <div class="menu-col span-3">
+              <p class="t-label" data-en="Repositories" data-zh="代码仓库">Repositories</p>
+              <a href="https://github.com/nigelleong0703/juno">Juno<span data-en="The agent team, self-hosted" data-zh="可自托管的智能体团队">The agent team, self-hosted</span></a>
+              <a href="https://github.com/nigelleong0703/pilot">Pilot<span data-en="Browser tools over MCP" data-zh="基于 MCP 的浏览器工具">Browser tools over MCP</span></a>
+              <a href="https://github.com/nigelleong0703/Taiji">Taiji<span data-en="Training and serving code" data-zh="训练与推理代码">Training and serving code</span></a>
+            </div>
+            <div class="menu-col span-3">
+              <p class="t-label" data-en="Model" data-zh="模型">Model</p>
+              <a href="https://huggingface.co/nigelleong0703/Taiji-2B">Taiji-2B<span data-en="Weights on Hugging Face" data-zh="Hugging Face 上的权重">Weights on Hugging Face</span></a>
+            </div>
+            <a class="menu-card span-3 start-10" href="https://junoteam.app">
+              <div class="panel"><img class="frame__img" src="assets/juno-icon.png" alt="Juno's bean mascot icon" data-en="Juno's bean mascot icon" data-zh="Juno 的豆子吉祥物图标" data-source="client" data-subject="Juno app icon"></div>
+              <span class="t-card" data-en="Juno app" data-zh="Juno 应用">Juno app</span>
+              <span class="t-small muted">junoteam.app</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="nav__actions">
+      <button class="nav__link lang-toggle" type="button" id="lang-toggle" lang="zh-CN" data-en="中文" data-zh="EN" data-aria-en="Switch to Chinese" data-aria-zh="切换为英文" aria-label="Switch to Chinese">中文</button>
+      <a class="btn btn--primary" href="#juno" data-en="See Juno" data-zh="看看 Juno">See Juno</a>
+    </div>
+    <button class="nav__toggle" type="button" aria-expanded="false" aria-label="Menu" data-aria-en="Menu" data-aria-zh="菜单">
+      <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M2 5h14M2 13h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </button>
+  </div>
 </header>
-<main id="main">
-<div class="content" id="top">
-<section class="intro viewsec" id="intro" data-viewsec="home" aria-labelledby="hero-title">
-<p class="eyebrow" data-en="Nigel Leong · AI engineer in Singapore" data-zh="梁证皓 · 常驻新加坡的 AI 工程师">Nigel Leong · AI engineer in Singapore</p>
-<h1 id="hero-title" data-en="I’m building for a future with agents." data-zh="我拥抱 AI 与智能体的未来。">I’m building for a future with agents.</h1>
-<p data-en="I’m an AI engineer in Singapore building Juno, a workspace where each agent has its own computer — so longer tasks stay easy to delegate, inspect, and take over from desktop or iPhone." data-zh="我是常驻新加坡的 AI 工程师，正在做 Juno：每位智能体都有自己电脑的工作空间，让耗时更长的任务更容易交付、检查和接手，在桌面或 iPhone 上跟进。">I’m an AI engineer in Singapore building Juno, a workspace where each agent has its own computer — so longer tasks stay easy to delegate, inspect, and take over from desktop or iPhone.</p>
-<p data-en="The same work produced Pilot, a browser harness shared by different agents, and Taiji-2B, research into fast tool-call decisions with a small model — the full path from models to tools to products." data-zh="同一份工作延伸出 Pilot——供不同智能体共用的浏览器执行层，以及 Taiji-2B——用小模型快速做工具调用决策的研究，覆盖从模型到工具再到产品的整条路径。">The same work produced Pilot, a browser harness shared by different agents, and Taiji-2B, research into fast tool-call decisions with a small model — the full path from models to tools to products.</p>
-<p class="hero-cta"><a class="btn-primary" href="#work" data-en="View projects" data-zh="查看项目">View projects</a></p>
-<p class="edu"><span data-en="Master of Science in Artificial Intelligence — Nanyang Technological University, Singapore" data-zh="南洋理工大学 · 人工智能理学硕士">Master of Science in Artificial Intelligence — Nanyang Technological University, Singapore</span><br /><span data-en="Bachelor of Engineering in Mechanical Engineering — Tsinghua University" data-zh="清华大学 · 机械工程工学学士">Bachelor of Engineering in Mechanical Engineering — Tsinghua University</span></p>
-</section>
-<section class="feature viewsec" id="home-feature" data-viewsec="home" aria-labelledby="feature-title">
-<div class="feature-copy">
-<p class="kicker" data-en="Featured" data-zh="精选">Featured</p>
-<h2 id="feature-title"><img class="title-icon" src="assets/juno-icon.png" alt="Juno icon" data-en="Juno icon" data-zh="Juno 图标" width="112" height="112" /><span>Juno</span></h2>
-<p class="feature-sum" data-en="Each agent gets its own computer — follow the work from your desktop or iPhone." data-zh="每位智能体都有自己的电脑，在桌面或 iPhone 上跟进工作。">Each agent gets its own computer — follow the work from your desktop or iPhone.</p>
-<p class="meta" data-en="In development · planned open source" data-zh="开发中 · 计划开源">In development · planned open source</p>
-<p class="feature-link"><a href="#juno-title" data-en="View project" data-zh="查看项目">View project</a></p>
-</div>
-<a class="feature-media" href="#juno-title" data-aria-en="Open the Juno project section" data-aria-zh="打开 Juno 项目介绍" aria-label="Open the Juno project section">
-<span class="phone"><img src="assets/juno-dynamo-chat.png?v=20261019-live" alt="Juno chat showing a Dynamo price comparison" data-en="Juno chat showing a Dynamo price comparison" data-zh="Juno 对话：Dynamo 比价" width="660" height="1434" loading="lazy" /></span>
-<span class="phone"><img src="assets/juno-agents-group.png" alt="Two Juno agents comparing and reviewing prices in one shared chat" data-en="Two Juno agents comparing and reviewing prices in one shared chat" data-zh="两位 Juno 智能体在同一群聊里比价与复核" width="660" height="1434" loading="lazy" /></span>
-</a>
-</section>
-<section class="work viewsec" id="work" data-viewsec="home work" aria-labelledby="work-title">
-<p class="section-no" aria-hidden="true">01</p>
-<h2 id="work-title" data-en="Projects" data-zh="项目">Projects</h2>
-<p class="work-lede" data-en="Agents, browsers, and models — three builds on one path from research to product." data-zh="智能体、浏览器与模型——同一条从研究到产品路径上的三次构建。">Agents, browsers, and models — three builds on one path from research to product.</p>
-<p class="index-label" data-en="Currently building" data-zh="正在做">Currently building</p>
-<ul class="project-index">
-<li><span class="idx" aria-hidden="true">01</span><a href="#juno-title">Juno</a><span data-en="A workspace where each agent has its own computer." data-zh="每位智能体都有自己电脑的工作空间。">A workspace where each agent has its own computer.</span></li>
-<li><span class="idx" aria-hidden="true">02</span><a href="#pilot-title">Pilot</a><span data-en="A local browser harness shared by different agents." data-zh="供不同智能体共用的本地浏览器执行层。">A local browser harness shared by different agents.</span></li>
-<li><span class="idx" aria-hidden="true">03</span><a href="#taiji-title">Taiji-2B</a><span data-en="Fast tool-call decisions with a small model." data-zh="用小模型快速做工具调用决策。">Fast tool-call decisions with a small model.</span></li>
-</ul>
-<article class="project juno" aria-labelledby="juno-title">
-<p class="proj-no" aria-hidden="true">01</p>
-<p class="proj-kicker" data-en="Agent workspace" data-zh="智能体工作空间">Agent workspace</p>
-<h3 id="juno-title"><img class="title-icon small" src="assets/juno-icon.png" alt="Juno icon" data-en="Juno icon" data-zh="Juno 图标" width="96" height="96" />Juno</h3>
-<p class="standfirst" data-en="A workspace for agents, each with their own computer." data-zh="每位智能体都拥有自己电脑的工作空间。">A workspace for agents, each with their own computer.</p>
-<p class="meta" data-en="In development · planned open source" data-zh="开发中 · 计划开源">In development · planned open source</p>
-<p data-en="Give an agent a task and follow its work from your desktop or iPhone. Inspect its computer, approve requested actions, and open the files it produces." data-zh="给智能体一个任务，在桌面或 iPhone 上跟进执行。你可以查看它的电脑、批准请求，并打开它产出的文件。">Give an agent a task and follow its work from your desktop or iPhone. Inspect its computer, approve requested actions, and open the files it produces.</p>
-<section class="juno-notes" aria-label="How Juno works" data-aria-en="How Juno works" data-aria-zh="Juno 如何工作">
-<p data-en="Long tasks keep a persistent plan and can delegate work to subagents. The harness checks unfinished tasks, active children and user-configured completion checks before accepting the result. Failed checks lead to another attempt or an explicit blocked state; you can steer the work as it runs." data-zh="长任务保留持续更新的计划，也能把工作委派给子 Agent。Harness 在收尾时检查未完成任务、仍在运行的子 Agent，以及用户配置的验收检查；检查失败就继续尝试，或明确报告阻塞原因。执行途中，你也能随时调整方向。">Long tasks keep a persistent plan and can delegate work to subagents. The harness checks unfinished tasks, active children and user-configured completion checks before accepting the result. Failed checks lead to another attempt or an explicit blocked state; you can steer the work as it runs.</p>
-<p data-en="Each user has their own memory, shared across their agents with agent-specific guidance. New memories need source quotes that code checks against the original messages. You can search what Juno remembers, inspect where it came from, and remove it from long-term memory." data-zh="每位用户都有自己的记忆，由其智能体共享，并保留针对不同智能体的相处指引。新记忆需要引用来源，由代码核对原始消息。你可以检索 Juno 记住了什么、查看来源，并将它从长期记忆中移除。">Each user has their own memory, shared across their agents with agent-specific guidance. New memories need source quotes that code checks against the original messages. You can search what Juno remembers, inspect where it came from, and remove it from long-term memory.</p>
-<p data-en="Nightly “dreaming” reviews conversations, measured writing habits and your corrections. It consolidates memories and updates guidance on language, tone and length, so later conversations can reflect how you prefer to work." data-zh="夜间的 dreaming 会回看对话、统计表达习惯，并整理你对回答的纠正；合并记忆，更新语言、语气与篇幅指引，让之后的协作逐渐贴近你的习惯。">Nightly “dreaming” reviews conversations, measured writing habits and your corrections. It consolidates memories and updates guidance on language, tone and length, so later conversations can reflect how you prefer to work.</p>
-<p data-en="Each user’s sandbox shares files across separate agent desktops and browser profiles, with live takeover. Private input travels encrypted from the phone to the sandbox helper. Vault values are stored in the phone’s Keychain; the server stores entry labels, and the agent receives fill status." data-zh="同一用户的沙箱共享文件，每位智能体有独立桌面与浏览器配置，并支持实时接管。私密输入从手机加密发送到沙箱助手；Vault 的值保存在手机 Keychain 中，服务端保存条目标签，智能体收到的是填入状态。">Each user’s sandbox shares files across separate agent desktops and browser profiles, with live takeover. Private input travels encrypted from the phone to the sandbox helper. Vault values are stored in the phone’s Keychain; the server stores entry labels, and the agent receives fill status.</p>
-</section>
-<section class="dynamo-case stage" id="dynamo-case" aria-labelledby="dynamo-title">
-<h4 id="dynamo-title"><span data-en="Juno in use" data-zh="Juno 实录">Juno in use</span><span class="dynamo-sub" data-en="Computer use, memory and collaboration · October 2026" data-zh="电脑操作、记忆与协作 · 2026 年 10 月实录">Computer use, memory and collaboration · October 2026</span></h4>
-<div class="computer-use-lead">
-<h5><span data-en="Complete phone recordings" data-zh="完整手机屏幕实录">Complete phone recordings</span></h5>
-<p data-en="Follow a fresh Dynamo task from chat to the working computer, then explore memory and learned reply style in the app." data-zh="跟随一次新的 Dynamo 任务，从聊天进入工作的电脑；再查看应用里的记忆与习得的回复风格。">Follow a fresh Dynamo task from chat to the working computer, then explore memory and learned reply style in the app.</p>
-<div class="juno-live-demos">
-<div class="live-demo">
-<figure class="shot computer-use-shot">
-<video class="computer-use-video" controls playsinline preload="none" poster="assets/juno-computer-use.jpg?v=20261019-fullphone" data-aria-en="Replay: Juno opening and reading product pages in its own browser" data-aria-zh="回放：Juno 在自己的浏览器里打开并阅读商品页面" aria-label="Replay: Juno opening and reading product pages in its own browser">
-<source src="assets/juno-computer-use.mp4?v=20261019-fullphone" type="video/mp4" />
-</video>
-<figcaption><span class="cap-main" data-en="Juno doing the lookup in its own browser" data-zh="Juno 在自己的浏览器里查价">Juno doing the lookup in its own browser</span><span class="cap-src" data-en="19 Oct 2026 · full phone recording in iOS Simulator · pauses shortened." data-zh="2026 年 10 月 19 日 · iOS 模拟器完整手机录像 · 停顿有缩短。">19 Oct 2026 · full phone recording in iOS Simulator · pauses shortened.</span></figcaption>
-</figure>
-</div>
-<div class="live-demo">
 
-<figure class="shot memory-shot">
-<video class="memory-video" controls playsinline preload="none" poster="assets/juno-memory.jpg" data-aria-en="Replay: memory and reply style in the iOS app" data-aria-zh="回放：iOS 应用中的记忆与回复风格" aria-label="Replay: memory and reply style in the iOS app">
-<source src="assets/juno-memory.mp4" type="video/mp4" />
-</video>
-<figcaption><span class="cap-main" data-en="Memory navigation, existing learned style, and a manually saved preference · 19 Oct 2026 · full phone recording; pauses shortened." data-zh="记忆导航、已有的风格学习结果，以及手动保存偏好 · 2026 年 10 月 19 日 · 完整手机录像，停顿有缩短。">Memory navigation, existing learned style, and a manually saved preference · 19 Oct 2026 · full phone recording; pauses shortened.</span></figcaption>
-</figure>
-</div>
-</div>
-</div>
-<div class="dynamo-duo">
-<div class="dynamo-item">
-<h5><span data-en="From the chat" data-zh="从聊天开始">From the chat</span></h5>
-<p data-en="The same fresh task, from the chat request to Juno’s comparison of FairPrice and Lazada, with product links and delivery fees." data-zh="同一次新任务：从聊天里下达请求，到 Juno 对比 FairPrice 与 Lazada，给出商品链接和运费。">The same fresh task, from the chat request to Juno’s comparison of FairPrice and Lazada, with product links and delivery fees.</p>
-<figure class="shot dynamo-shot">
-<div class="phone-shell"><video class="dynamo-video" controls playsinline preload="none" poster="assets/juno-dynamo-chat.png?v=20261019-live" data-aria-en="Replay: Dynamo price check starting from a chat message" data-aria-zh="回放：从聊天消息开始的 Dynamo 查价" aria-label="Replay: Dynamo price check starting from a chat message">
-<source src="assets/juno-dynamo-chat.mp4?v=20261019-live" type="video/mp4" />
-</video></div>
-<figcaption><span class="cap-main" data-en="From request to a sourced comparison" data-zh="从请求到附来源的比价结果">From request to a sourced comparison</span><span class="cap-src" data-en="19 Oct 2026 · same task as the computer recording · pauses shortened" data-zh="2026 年 10 月 19 日 · 与电脑录像为同一次任务 · 停顿有缩短">19 Oct 2026 · same task as the computer recording · pauses shortened</span></figcaption>
-</figure>
-</div>
-<div class="dynamo-item">
-<h5><span data-en="Compare, then review" data-zh="比价，再复核">Compare, then review</span></h5>
-<p data-en="In the same group, I asked Shopee Finder to compare prices, then Juno Demo to review the answer." data-zh="在同一个群里，我先让 Shopee Finder 比价，再让 Juno Demo 复核回答。">In the same group, I asked Shopee Finder to compare prices, then Juno Demo to review the answer.</p>
-<p data-en="The reviewer questioned an unverified low-price claim and calculated the delivered cost of a single pack." data-zh="复核者质疑了无法验证的低价，并补算单包送到手的总价。">The reviewer questioned an unverified low-price claim and calculated the delivered cost of a single pack.</p>
-<figure class="shot dynamo-shot">
-<div class="phone-shell"><video class="dynamo-video" controls playsinline preload="none" poster="assets/juno-agents-group.png" data-aria-en="Replay: shared group where one agent researches and a second reviews" data-aria-zh="回放：一位调研、第二位复核的共享群聊" aria-label="Replay: shared group where one agent researches and a second reviews">
-<source src="assets/juno-agents-group.mp4" type="video/mp4" />
-</video></div>
-<figcaption><span class="cap-main" data-en="One compares, a second reviews" data-zh="一位比价，第二位复核">One compares, a second reviews</span><span class="cap-src" data-en="Two agents in one chat · 19 Oct 2026 · iOS Simulator" data-zh="同一群聊里的两位智能体 · 2026 年 10 月 19 日 · iOS 模拟器">Two agents in one chat · 19 Oct 2026 · iOS Simulator</span></figcaption>
-</figure>
-</div>
-</div>
-</section>
+<main id="top">
+  <section class="hero hero--collage" data-enter aria-labelledby="hero-h">
+    <div class="wrap"><div class="hero-text grid hero__grid">
+      <div class="hero__text span-5">
+        <h1 id="hero-h" data-en="AI agents that work on their own computers" data-zh="在自己电脑上干活的 AI 智能体">AI agents that work on their own computers</h1>
+        <p class="hero__lead" data-en="I’m Nigel Leong, an AI engineer at Sony in Singapore. I build Juno, a self-hosted team of personal agents that come back only when they need you." data-zh="我是梁证皓，新加坡 Sony 的 AI 工程师。我在做 Juno：一支可自托管的个人智能体团队，只在需要你时才回来找你。">I’m Nigel Leong, an AI engineer at Sony in Singapore. I build Juno, a self-hosted team of personal agents that come back only when they need you.</p>
+        <div class="btn-row">
+          <a class="btn btn--primary" href="#juno"><span data-en="See Juno" data-zh="看看 Juno">See Juno</span><svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
+          <a class="btn btn--secondary" href="mailto:nigelleong0703@outlook.com" data-en="Email me" data-zh="给我发邮件">Email me</a>
+        </div>
+        <p class="hero__proof" data-en="MSc in AI, NTU. B.Eng., Tsinghua University." data-zh="南洋理工大学人工智能硕士，清华大学工学学士。">MSc in AI, NTU. B.Eng., Tsinghua University.</p>
+      </div>
+      <div class="hero__art span-6 start-7" data-fx="bayer-dither" data-fx-seed="703" data-fx-params='{"pixel":3,"calm":0.35,"calmX":0.7,"calmY":0.6,"speed":0.3}' role="img" aria-label="Juno on iPhone: an agent compares Dynamo pod prices at FairPrice and Lazada with sources, beside the task's plan" data-aria-en="Juno on iPhone: an agent compares Dynamo pod prices at FairPrice and Lazada with sources, beside the task's plan" data-aria-zh="iPhone 上的 Juno：智能体对比 FairPrice 和 Lazada 的 Dynamo 洗衣球价格并附来源，旁边是任务计划">
+        <div class="ly-piece ly-piece--main device" aria-hidden="true">
+          <img src="assets/juno-dynamo-chat.png" alt="" width="1320" height="2868" fetchpriority="high" data-source="client" data-subject="Juno iOS chat with a sourced price comparison">
+        </div>
+        <div class="ly-piece ly-piece--note" aria-hidden="true">
+          <div class="ui ui-panel ui-checks" data-ui="checklist" data-ui-still>
+            <div class="ui-checks__head">
+              <div class="ui-title" data-en="Dynamo pod prices" data-zh="Dynamo 洗衣球比价">Dynamo pod prices</div>
+              <span class="ui-spacer"></span>
+              <div class="ui-meta" data-checks-count>4 / 4</div>
+            </div>
+            <div class="ui-checks__bar"><i data-checks-bar style="--k:1"></i></div>
+            <ul class="ui-checks__list">
+              <li class="ui-check is-done"><span class="ui-check__box"><svg viewBox="0 0 16 16"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-check__label" data-en="Open FairPrice and Lazada" data-zh="打开 FairPrice 和 Lazada">Open FairPrice and Lazada</span></li>
+              <li class="ui-check is-done"><span class="ui-check__box"><svg viewBox="0 0 16 16"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-check__label" data-en="Check prices and delivery fees" data-zh="核对价格与运费">Check prices and delivery fees</span></li>
+              <li class="ui-check is-done"><span class="ui-check__box"><svg viewBox="0 0 16 16"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-check__label" data-en="Compare with source links" data-zh="附来源链接做对比">Compare with source links</span></li>
+              <li class="ui-check is-done"><span class="ui-check__box"><svg viewBox="0 0 16 16"><path d="m4.5 8.2 2.3 2.3 4.7-5"/></svg></span><span class="ui-check__label" data-en="Pass the completion check" data-zh="通过完成检查">Pass the completion check</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div></div>
+  </section>
 
-</article>
-<article class="project pilot" aria-labelledby="pilot-title">
-<p class="proj-no" aria-hidden="true">02</p>
-<p class="proj-kicker" data-en="Browser harness" data-zh="浏览器执行层">Browser harness</p>
-<div class="pilot-grid">
-<figure class="shot">
-<a class="shot-btn" href="assets/pilot-recorder.png" data-full="assets/pilot-recorder.png" data-gallery="pilot" data-aria-en="Open Pilot action recorder screenshot, enlarged" data-aria-zh="放大查看 Pilot 动作录制器截图" aria-label="Open Pilot action recorder screenshot, enlarged">
-<img src="assets/pilot-recorder.png" alt="Pilot action recorder showing five recorded steps with per-step thumbnails" data-en="Pilot action recorder showing five recorded steps with per-step thumbnails" data-zh="Pilot 动作录制器，显示五个录制步骤及每步缩略图" loading="lazy" width="860" height="720" />
-</a>
-<figcaption data-en="Recording a browser workflow into reusable steps" data-zh="将浏览器流程录制为可复用步骤">Recording a browser workflow into reusable steps</figcaption>
-</figure>
-<div class="pilot-copy">
-<h3 id="pilot-title">Pilot</h3>
-<p data-en="A local browser harness for Chrome and Edge. Claude Code, Codex and OpenCode use the same tools; recorded actions become replayable skills." data-zh="本地浏览器执行层，支持 Chrome 与 Edge。Claude Code、Codex 与 OpenCode 共用同一套工具；录制的操作可以沉淀为可回放的技能。">A local browser harness for Chrome and Edge. Claude Code, Codex and OpenCode use the same tools; recorded actions become replayable skills.</p>
-<p class="aid-note" data-en="Built with AI-assisted development." data-zh="通过 AI 辅助开发实现。">Built with AI-assisted development.</p>
-<p class="arch-line" data-en="Agent CLI → MCP bridge → browser extension → page" data-zh="智能体 CLI → MCP 桥接 → 浏览器扩展 → 页面">Agent CLI → MCP bridge → browser extension → page</p>
-<p><a href="https://github.com/nigelleong0703/pilot" target="_blank" rel="noopener noreferrer" data-en="GitHub repository" data-zh="GitHub 仓库">GitHub repository</a></p>
-</div>
-</div>
-<details class="demo">
-<summary data-en="Recorded demo (animated GIF)" data-zh="录制演示（动态 GIF）">Recorded demo (animated GIF)</summary>
-<a class="shot-btn gif-btn" href="assets/pilot-demo.gif" data-full="assets/pilot-demo.gif" data-gallery="pilot" data-aria-en="Open recorded demo animation, enlarged" data-aria-zh="放大查看录制演示动画" aria-label="Open recorded demo animation, enlarged">
-<img src="assets/pilot-demo.gif" alt="Recorded animation of Pilot operating a web page" data-en="Recorded animation of Pilot operating a web page" data-zh="Pilot 操作网页的录制动画" loading="lazy" width="860" height="720" />
-</a>
-<figure class="shot secondary">
-<a class="shot-btn" href="assets/pilot-browser.png" data-full="assets/pilot-browser.png" data-gallery="pilot" data-aria-en="Open Pilot browser sidepanel screenshot, enlarged" data-aria-zh="放大查看 Pilot 浏览器侧边栏截图" aria-label="Open Pilot browser sidepanel screenshot, enlarged">
-<img src="assets/pilot-browser.png" alt="Pilot browser extension sidepanel next to a web page" data-en="Pilot browser extension sidepanel next to a web page" data-zh="网页旁的 Pilot 浏览器扩展侧边栏" loading="lazy" width="3600" height="2260" />
-</a>
-<figcaption data-en="Browser sidepanel during a session" data-zh="会话中的浏览器侧边栏">Browser sidepanel during a session</figcaption>
-</figure>
-</details>
-</article>
-<article class="project taiji" aria-labelledby="taiji-title">
-<p class="proj-no" aria-hidden="true">03</p>
-<p class="proj-kicker" data-en="Model research" data-zh="模型研究">Model research</p>
-<h3 id="taiji-title">Taiji-2B</h3>
-<p class="standfirst" data-en="Fast tool-call decisions with a small model, escalating to a larger one when unsure." data-zh="用小模型快速做工具调用决策，不确定时再交给大模型。">Fast tool-call decisions with a small model, escalating to a larger one when unsure.</p>
-<p data-en="Inspired by TypeSafe’s Jev and its System One approach: fast, structured decisions with probabilities that software can act on. Taiji-2B explores this idea for agent tool calls." data-zh="灵感来自 TypeSafe 的 Jev 及其 System One 思路：快速输出结构化决策与概率，交由程序执行。Taiji-2B 将这一思路用于 Agent 的工具调用决策。">Inspired by TypeSafe’s Jev and its System One approach: fast, structured decisions with probabilities that software can act on. Taiji-2B explores this idea for agent tool calls.</p>
-<p data-en="Taiji-2B is Qwen3.5-2B with a rank-16 LoRA and a decision head, trained on 60,395 rows. Each decision takes one forward pass and returns calibrated probabilities over exactly your options." data-zh="Taiji-2B 基于 Qwen3.5-2B，加上 rank-16 LoRA 与决策头，训练数据 60,395 行。每次决策只需一次前向传播，在你给出的选项上返回校准后的概率。">Taiji-2B is Qwen3.5-2B with a rank-16 LoRA and a decision head, trained on 60,395 rows. Each decision takes one forward pass and returns calibrated probabilities over exactly your options.</p>
-<ol class="pipeline">
-<li><strong data-en="Input" data-zh="输入">Input</strong><span data-en="State + questions: text, JSON, optional screenshot, with the allowed options." data-zh="状态与问题：文本、JSON、可选截图，附带允许的选项。">State + questions: text, JSON, optional screenshot, with the allowed options.</span></li>
-<li><strong>Taiji-2B (S1)</strong><span data-en="Qwen3.5-2B + LoRA + decision head. One forward pass." data-zh="Qwen3.5-2B + LoRA 与决策头，一次前向传播。">Qwen3.5-2B + LoRA + decision head. One forward pass.</span></li>
-<li><strong data-en="Calibrated output" data-zh="校准输出">Calibrated output</strong><span data-en="Probabilities + confidence, or short text." data-zh="概率与置信度，或短文本。">Probabilities + confidence, or short text.</span></li>
-</ol>
-<p class="branch-note" data-en="Low confidence sends the same options to an OpenAI-compatible model (S2). Invalid answers fall back to S1." data-zh="置信度不足时，将相同选项交给兼容 OpenAI 接口的大模型（S2）；回答无效时保留 S1 结果。">Low confidence sends the same options to an OpenAI-compatible model (S2). Invalid answers fall back to S1.</p>
-<p class="metrics-line"><strong>2B</strong> <span data-en="base" data-zh="基座">base</span> · <strong>86%</strong> <span data-en="over 2,945 held-out decisions" data-zh="2,945 条留出决策">over 2,945 held-out decisions</span> · <strong>219 ms</strong> <span data-en="median per decision, single H100, ~6.5k-token request" data-zh="每次决策中位耗时，单张 H100，约 6.5k token 请求">median per decision, single H100, ~6.5k-token request</span></p>
-<details class="demo">
-<summary data-en="Measured numbers" data-zh="实测数据">Measured numbers</summary>
-<ul class="measure-list">
-<li data-en="Trained on 60,395 rows with a rank-16 LoRA; temperature-calibrated (ECE 0.02); 76% field-text exact match." data-zh="训练数据 60,395 行，rank-16 LoRA；经温度校准（ECE 0.02）；字段文本精确匹配 76%。">Trained on 60,395 rows with a rank-16 LoRA; temperature-calibrated (ECE 0.02); 76% field-text exact match.</li>
-<li data-en="219 ms median server time per decision on a single H100 for a ~6,500-token request with shared prefix; about 6 GB of VRAM." data-zh="单张 H100 上约 6,500 token 请求（共享前缀）下，每次决策服务器中位耗时 219 毫秒；显存占用约 6 GB。">219 ms median server time per decision on a single H100 for a ~6,500-token request with shared prefix; about 6 GB of VRAM.</li>
-</ul>
-</details>
-<p class="fineprint" data-en="86% is offline decision accuracy, not end-to-end task success." data-zh="86% 是离线决策准确率，不是端到端任务成功率。">86% is offline decision accuracy, not end-to-end task success.</p>
-<p class="link-row">
-<a href="https://github.com/nigelleong0703/Taiji" target="_blank" rel="noopener noreferrer" data-en="GitHub repository" data-zh="GitHub 仓库">GitHub repository</a>
-<a href="https://huggingface.co/nigelleong0703/Taiji-2B" target="_blank" rel="noopener noreferrer" data-en="Model weights" data-zh="模型权重">Model weights</a>
-<a href="https://docs.typesafe.ai/concepts/system-one" target="_blank" rel="noopener noreferrer" data-en="Jev · inspiration" data-zh="灵感来源 · Jev">Jev · inspiration</a>
-</p>
-</article>
-</section>
-<section class="about viewsec" id="about" data-viewsec="about" aria-labelledby="about-title">
-<h2 id="about-title" data-en="About" data-zh="关于">About</h2>
-<div class="about-grid">
-<img class="about-photo" src="assets/portrait.jpg" alt="Portrait of Nigel Leong" data-en="Portrait of Nigel Leong" data-zh="梁证皓的照片" width="390" height="567" loading="lazy" />
-<div class="about-copy">
-<p data-en="Mechanical engineer turned AI engineer. At Pentas Vision I work on agent architecture and evaluation; previously the sole AI engineer at Antalpha for eight months." data-zh="机械工程转 AI。现在在 Pentas Vision 做智能体架构与评测；之前在 Antalpha 独自负责 AI 工程八个月。">Mechanical engineer turned AI engineer. At Pentas Vision I work on agent architecture and evaluation; previously the sole AI engineer at Antalpha for eight months.</p>
-<p class="compact"><span data-en="Master of Science in Artificial Intelligence — Nanyang Technological University, Singapore" data-zh="南洋理工大学 · 人工智能理学硕士">Master of Science in Artificial Intelligence — Nanyang Technological University, Singapore</span><br /><span data-en="Bachelor of Engineering in Mechanical Engineering — Tsinghua University" data-zh="清华大学 · 机械工程工学学士">Bachelor of Engineering in Mechanical Engineering — Tsinghua University</span></p>
-</div>
-</div>
-</section>
-<section class="experience viewsec" id="experience" data-viewsec="experience" aria-labelledby="exp-title">
-<h2 id="exp-title" data-en="Experience" data-zh="经历">Experience</h2>
-<ul class="exp-list">
-<li class="exp-row">
-<div class="exp-main">
-<strong data-en="AI Engineer, Agent Systems — Pentas Vision, Singapore" data-zh="AI 工程师（智能体系统）—— Pentas Vision，新加坡">AI Engineer, Agent Systems — Pentas Vision, Singapore</strong>
-<p data-en="Planner–executor–reviewer coding-agent loop with a 40-case eval set; FAE support agent at 80–90% retrieval, ~70% overall under engineer review." data-zh="规划—执行—审查编程智能体循环与 40 例评测集；FAE 支持智能体检索约 80–90%、工程师复核下整体约 70%。">Planner–executor–reviewer coding-agent loop with a 40-case eval set; FAE support agent at 80–90% retrieval, ~70% overall under engineer review.</p>
-</div>
-<p class="exp-time"><time datetime="2026-05"><span data-en="May 2026" data-zh="2026年5月">May 2026</span></time><span aria-hidden="true"> – </span><span data-en="Present" data-zh="至今">Present</span></p>
-</li>
-<li class="exp-row">
-<div class="exp-main">
-<strong data-en="AI Engineer — Antalpha, Singapore" data-zh="AI 工程师 —— Antalpha，新加坡">AI Engineer — Antalpha, Singapore</strong>
-<p data-en="Sole AI engineer for 8 months, mentored 3 interns. 32-GPU inference, reusable RAG at ~80% on the internal benchmark, portal serving 200+ employees." data-zh="连续 8 个月作为唯一的 AI 工程师，并指导 3 名实习生。32 卡推理、可复用 RAG 在内部基准约 80%，门户服务 200 多名员工。">Sole AI engineer for 8 months, mentored 3 interns. 32-GPU inference, reusable RAG at ~80% on the internal benchmark, portal serving 200+ employees.</p>
-</div>
-<p class="exp-time"><time datetime="2024-11"><span data-en="Nov 2024" data-zh="2024年11月">Nov 2024</span></time><span aria-hidden="true"> – </span><time datetime="2026-04"><span data-en="Apr 2026" data-zh="2026年4月">Apr 2026</span></time></p>
-</li>
-<li class="exp-row">
-<div class="exp-main">
-<strong data-en="Nanyang Technological University — Master of Science in Artificial Intelligence" data-zh="南洋理工大学——人工智能理学硕士">Nanyang Technological University — Master of Science in Artificial Intelligence</strong>
-<p>GPA 4.70 / 5.00</p>
-</div>
-<p class="exp-time"><time datetime="2023">2023</time><span aria-hidden="true"> – </span><time datetime="2024">2024</time></p>
-</li>
-<li class="exp-row">
-<div class="exp-main">
-<strong data-en="Tsinghua University — Bachelor of Engineering in Mechanical Engineering" data-zh="清华大学——机械工程工学学士">Tsinghua University — Bachelor of Engineering in Mechanical Engineering</strong>
-<p>GPA 3.68 / 4.00</p>
-</div>
-<p class="exp-time"><time datetime="2019">2019</time><span aria-hidden="true"> – </span><time datetime="2023">2023</time></p>
-</li>
-</ul>
-</section>
-<section class="contact viewsec" id="contact" data-viewsec="contact" aria-labelledby="contact-title">
-<h2 id="contact-title" data-en="Contact" data-zh="联系">Contact</h2>
-<ul class="contact-list">
-<li><a href="mailto:nigelleong0703@outlook.com">nigelleong0703@outlook.com</a></li>
-<li><a href="https://github.com/nigelleong0703" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-<li><a href="https://www.linkedin.com/in/nigelleongzhenghao/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-</ul>
-</section>
-</div>
-<footer class="site-footer">
-<div class="footer-inner">
-<p>© 2026 Nigel Leong</p>
-</div>
-</footer>
+  <section class="section" id="juno" style="--h: 2" data-moment="pinned-chapters" aria-labelledby="juno-h">
+    <div class="wrap mo-pc__grid">
+      <div class="mo-pc__text">
+        <h2 id="juno-h"><span data-en="Juno, your own team of personal AI agents." data-zh="Juno，你自己的个人 AI 智能体团队。">Juno, your own team of personal AI agents.</span></h2>
+        <p class="btn-row juno-links"><a class="link" href="https://junoteam.app" data-en="Open the Juno app" data-zh="打开 Juno 应用">Open the Juno app</a><a class="link" href="https://github.com/nigelleong0703/juno" data-en="Read the Juno code" data-zh="阅读 Juno 代码">Read the Juno code</a></p>
+        <ol class="mo-pc__steps">
+          <li class="mo-pc__step">
+            <h3 data-en="The agent team, with roles" data-zh="智能体团队：各有分工">The agent team, with roles</h3>
+            <p data-en="Each agent keeps its role and goals. Shopee Finder compares prices; Juno Demo checks the answer." data-zh="每位智能体守着自己的角色和目标。Shopee Finder 负责比价，Juno Demo 负责复核。">Each agent keeps its role and goals. Shopee Finder compares prices; Juno Demo checks the answer.</p>
+            <figure class="mo-pc__visual mo-pc__visual--lit"><img class="juno-shot" src="assets/juno-agents-group.png" alt="Juno group chat: Shopee Finder compares Dynamo prices and Juno Demo flags a Lazada price it could not verify" data-en="Juno group chat: Shopee Finder compares Dynamo prices and Juno Demo flags a Lazada price it could not verify" data-zh="Juno 群聊：Shopee Finder 对比 Dynamo 价格，Juno Demo 指出 Lazada 的低价无法核实" width="1320" height="2868" loading="lazy" data-source="client" data-subject="Juno iOS screen"></figure>
+          </li>
+          <li class="mo-pc__step">
+            <h3 data-en="Juno’s memory of you" data-zh="Juno 对你的记忆">Juno’s memory of you</h3>
+            <p data-en="Every memory cites the message it came from. Each night Juno tunes its tone and length." data-zh="每条记忆都注明出自哪条消息。每晚 Juno 会调整语气和篇幅。">Every memory cites the message it came from. Each night Juno tunes its tone and length.</p>
+            <figure class="mo-pc__visual mo-pc__visual--lit"><img class="juno-shot" src="assets/juno-memory.jpg" alt="Juno's learned reply style on iPhone, with tone, language and length guidance" data-en="Juno's learned reply style on iPhone, with tone, language and length guidance" data-zh="iPhone 上 Juno 习得的回复风格：语气、语言与篇幅指引" width="1320" height="2868" loading="lazy" data-source="client" data-subject="Juno iOS screen"></figure>
+          </li>
+          <li class="mo-pc__step">
+            <h3 data-en="The agent’s own computer" data-zh="智能体自己的电脑">The agent’s own computer</h3>
+            <p data-en="Long tasks run in the agent's own browser and desktop. Watch live and take over at any time." data-zh="长任务在智能体自己的浏览器和桌面里运行。你可以实时观看，随时接手。">Long tasks run in the agent's own browser and desktop. Watch live and take over at any time.</p>
+            <figure class="mo-pc__visual mo-pc__visual--lit"><img class="juno-shot" src="assets/juno-computer-use.jpg" alt="Juno Demo working in its own browser on a FairPrice page, with a Take over button" data-en="Juno Demo working in its own browser on a FairPrice page, with a Take over button" data-zh="Juno Demo 在自己的浏览器里浏览 FairPrice 页面，下方有“接手”按钮" width="1320" height="2868" loading="lazy" data-source="client" data-subject="Juno iOS screen"></figure>
+          </li>
+          <li class="mo-pc__step">
+            <h3 data-en="Approval requests on your phone" data-zh="手机上的审批请求">Approval requests on your phone</h3>
+            <p data-en="Agents come back for an approval, an answer or a sign-in. Self-hosted; web, desktop and iPhone." data-zh="智能体只为审批、提问或登录回来找你。可自托管，支持网页、桌面和 iPhone。">Agents come back for an approval, an answer or a sign-in. Self-hosted; web, desktop and iPhone.</p>
+            <figure class="mo-pc__visual mo-pc__visual--lit"><div class="ui ui-notify" data-ui="notify">
+                <ul class="ui-notify__list" data-notify-list>
+                  <li class="ui-note"><span class="ui-agent ui-note__av" aria-hidden="true"></span><span class="ui-note__text"><span class="ui-note__title"><span data-en="Approval needed" data-zh="需要你审批">Approval needed</span><time data-en="now" data-zh="刚刚">now</time></span><span class="ui-note__body" data-en="Juno Demo waits before it acts" data-zh="Juno Demo 等你同意再动手">Juno Demo waits before it acts</span></span><span class="ui-btn ui-btn--sm ui-note__btn" data-en="Open" data-zh="打开">Open</span></li>
+                  <li class="ui-note"><span class="ui-avatar ui-note__av" data-tone="5">SF</span><span class="ui-note__text"><span class="ui-note__title"><span data-en="Shopee Finder asks you" data-zh="Shopee Finder 有个问题">Shopee Finder asks you</span><time data-en="4m" data-zh="4 分钟">4m</time></span><span class="ui-note__body" data-en="It waits for your answer" data-zh="它会等你回答">It waits for your answer</span></span></li>
+                  <li class="ui-note"><span class="ui-note__ico"><svg class="ui-icon" viewBox="0 0 16 16"><path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2"/><path d="M4 7h8v6.5H4z"/></svg></span><span class="ui-note__text"><span class="ui-note__title"><span data-en="Sign-in needed" data-zh="需要登录">Sign-in needed</span><time data-en="12m" data-zh="12 分钟">12m</time></span><span class="ui-note__body" data-en="Typed on your phone, sent encrypted" data-zh="在手机上输入，加密传送">Typed on your phone, sent encrypted</span></span></li>
+                </ul>
+              </div></figure>
+          </li>
+        </ol>
+      </div>
+      <div class="mo-pc__visuals frame"></div>
+    </div>
+  </section>
+
+  <section class="section ground-inverse" id="pilot" aria-labelledby="pilot-h">
+    <div class="wrap">
+      <div class="grid">
+        <div class="span-5 stack-4">
+          <h2 id="pilot-h"><span data-en="Pilot, a local browser harness for agents." data-zh="Pilot，给智能体用的本地浏览器执行层。">Pilot, a local browser harness for agents.</span></h2>
+          <p class="t-lead" data-en="Claude Code, Codex and OpenCode drive the same Chrome or Edge tools over MCP. A recorded run becomes a skill any of them can replay." data-zh="Claude Code、Codex 和 OpenCode 通过 MCP 共用同一套 Chrome 或 Edge 工具。录下的一次操作会变成任何一位都能回放的技能。">Claude Code, Codex and OpenCode drive the same Chrome or Edge tools over MCP. A recorded run becomes a skill any of them can replay.</p>
+          <p class="arch-line" data-en="Agent CLI → MCP bridge → browser extension → page" data-zh="智能体 CLI → MCP 桥接 → 浏览器扩展 → 页面">Agent CLI → MCP bridge → browser extension → page</p>
+          <p><a class="link" href="https://github.com/nigelleong0703/pilot" data-en="Read the Pilot code" data-zh="阅读 Pilot 代码">Read the Pilot code</a></p>
+        </div>
+        <div class="frame frame--split span-6 start-7">
+          <div class="stage stage--fade-br">
+            <div class="at-corner pilot-shot" style="--ax:56px;--ay:56px"><img src="assets/pilot-recorder.png" alt="Pilot's recorder in the browser side panel, with five recorded steps and a thumbnail for each" data-en="Pilot's recorder in the browser side panel, with five recorded steps and a thumbnail for each" data-zh="浏览器侧边栏里的 Pilot 录制器：五个已录步骤，每步带缩略图" width="860" height="720" loading="lazy" data-source="client" data-subject="Pilot action recorder"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="taiji" aria-labelledby="taiji-h">
+    <div class="wrap">
+      <div class="grid head-grid">
+        <h2 class="span-5" id="taiji-h"><span data-en="Taiji-2B, a small model for agent decisions." data-zh="Taiji-2B，为智能体做决策的小模型。">Taiji-2B, a small model for agent decisions.</span></h2>
+        <div class="span-6 start-7 stack-4">
+          <p class="t-lead" data-en="An open 2B “System One”: one forward pass returns a choice, yes-no or score with calibrated probabilities, and unsure cases go to a larger LLM. Inspired by TypeSafe's Jev." data-zh="一个开源的 2B “System One”：一次前向传播给出选择、是非或打分，并附校准过的概率；拿不准的交给更大的 LLM。灵感来自 TypeSafe 的 Jev。">An open 2B “System One”: one forward pass returns a choice, yes-no or score with calibrated probabilities, and unsure cases go to a larger LLM. Inspired by TypeSafe's Jev.</p>
+          <p class="btn-row"><a class="link" href="https://github.com/nigelleong0703/Taiji" data-en="Read the Taiji code" data-zh="阅读 Taiji 代码">Read the Taiji code</a><a class="link" href="https://huggingface.co/nigelleong0703/Taiji-2B" data-en="Download the weights" data-zh="下载模型权重">Download the weights</a></p>
+        </div>
+      </div>
+      <div class="frame fill">
+        <div class="dg" data-diagram='{"layout":"free","size":"band","ground":"dots","motion":{"pulse":"none"},"alt":"An agent request goes to Taiji-2B, which returns a choice, yes-no or score in 219 ms and passes unsure cases to a larger LLM.","nodes":[{"id":"req","label":"Agent request","icon":"ui:file-text","meta":"6,500 tokens","at":[0.15,0.5],"atCompact":[0.5,0.14]},{"id":"s1","label":"Taiji-2B","icon":"ui:zap","meta":"219 ms","at":[0.47,0.5],"atCompact":[0.5,0.42]},{"id":"ok","label":"Decision","icon":"ui:check","meta":"Choice, yes-no, score","done":true,"at":[0.82,0.29],"atCompact":[0.27,0.76]},{"id":"s2","label":"Larger LLM","icon":"ui:brain","meta":"When unsure","at":[0.82,0.71],"atCompact":[0.73,0.76]}],"edges":[{"from":"req","to":"s1"},{"from":"s1","to":"ok","curve":"elbow"},{"from":"s1","to":"s2","curve":"elbow"}]}' data-diagram-zh='{"layout":"free","size":"band","ground":"dots","motion":{"pulse":"none"},"alt":"智能体请求交给 Taiji-2B，它在 219 毫秒内给出选择、是非或打分，拿不准时交给更大的 LLM。","nodes":[{"id":"req","label":"智能体请求","icon":"ui:file-text","meta":"6,500 token","at":[0.15,0.5],"atCompact":[0.5,0.14]},{"id":"s1","label":"Taiji-2B","icon":"ui:zap","meta":"219 毫秒","at":[0.47,0.5],"atCompact":[0.5,0.42]},{"id":"ok","label":"决策","icon":"ui:check","meta":"选择、是非、打分","done":true,"at":[0.82,0.29],"atCompact":[0.27,0.76]},{"id":"s2","label":"更大的 LLM","icon":"ui:brain","meta":"拿不准时","at":[0.82,0.71],"atCompact":[0.73,0.76]}],"edges":[{"from":"req","to":"s1"},{"from":"s1","to":"ok","curve":"elbow"},{"from":"s1","to":"s2","curve":"elbow"}]}'></div>
+      </div>
+      <div class="grid taiji-facts">
+        <div class="span-3"><p class="t-card">86%</p><p data-en="accuracy over 2,945 held-out decisions, offline, not end-to-end task success" data-zh="2,945 条留出决策上的离线准确率，不是端到端任务成功率">accuracy over 2,945 held-out decisions, offline, not end-to-end task success</p></div>
+        <div class="span-3"><p class="t-card">219 ms</p><p data-en="median per decision on one H100, for a 6,500-token request" data-zh="单张 H100 上每次决策的中位耗时，请求约 6,500 token">median per decision on one H100, for a 6,500-token request</p></div>
+        <div class="span-3"><p class="t-card">ECE 0.02</p><p data-en="calibration error, so software can act on the probabilities" data-zh="校准误差，程序可以直接按概率行事">calibration error, so software can act on the probabilities</p></div>
+        <div class="span-3"><p class="t-card">6 GB</p><p data-en="of VRAM; trained on 60,395 rows" data-zh="显存占用；训练数据 60,395 行">of VRAM; trained on 60,395 rows</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-dots" id="experience" aria-labelledby="exp-h">
+    <div class="wrap">
+      <div class="section-head"><h2 id="exp-h"><span data-en="Sony, Antalpha, NTU, Tsinghua" data-zh="Sony、Antalpha、南洋理工、清华">Sony, Antalpha, NTU, Tsinghua</span></h2></div>
+      <div class="grid">
+        <ul class="rows span-6">
+          <li><span class="rows__name" data-en="AI Engineer, Sony, Singapore" data-zh="AI 工程师，Sony，新加坡">AI Engineer, Sony, Singapore</span><p data-en="Builds internal agents, including a GitLab coding agent that turns issues into merge requests with a planner, executor and reviewer, tested on 40 real issues." data-zh="开发内部智能体，包括一个把 GitLab issue 变成 merge request 的编程智能体，采用规划、执行、审查循环，在 40 个真实 issue 上评测。">Builds internal agents, including a GitLab coding agent that turns issues into merge requests with a planner, executor and reviewer, tested on 40 real issues.</p><span class="rows__value" data-en="May 2026 to now" data-zh="2026 年 5 月至今">May 2026 to now</span></li>
+          <li><span class="rows__name" data-en="AI Engineer, Antalpha, Singapore" data-zh="AI 工程师，Antalpha，新加坡">AI Engineer, Antalpha, Singapore</span><p data-en="Sole AI engineer for eight months. Built a virtual-employee agent platform with approval gates and audit logs, a 32-GPU inference service and an AI portal for 200+ staff." data-zh="八个月里公司唯一的 AI 工程师。搭建带审批关卡和审计日志的虚拟员工智能体平台、32 卡本地推理服务，以及 200 多名员工使用的 AI 门户。">Sole AI engineer for eight months. Built a virtual-employee agent platform with approval gates and audit logs, a 32-GPU inference service and an AI portal for 200+ staff.</p><span class="rows__value" data-en="Nov 2024 to Apr 2026" data-zh="2024 年 11 月至 2026 年 4 月">Nov 2024 to Apr 2026</span></li>
+          <li><span class="rows__name" data-en="MSc Artificial Intelligence, NTU" data-zh="南洋理工大学，人工智能硕士">MSc Artificial Intelligence, NTU</span><p data-en="GPA 4.70 of 5.00" data-zh="GPA 4.70 / 5.00">GPA 4.70 of 5.00</p><span class="rows__value" data-en="2023 to 2024" data-zh="2023 至 2024">2023 to 2024</span></li>
+          <li><span class="rows__name" data-en="B.Eng. Mechanical Engineering, Tsinghua" data-zh="清华大学，机械工程学士">B.Eng. Mechanical Engineering, Tsinghua</span><p data-en="GPA 3.68 of 4.00" data-zh="GPA 3.68 / 4.00">GPA 3.68 of 4.00</p><span class="rows__value" data-en="2019 to 2023" data-zh="2019 至 2023">2019 to 2023</span></li>
+        </ul>
+        <div class="frame exp-dg span-6 start-7"><div class="dg" data-diagram='{"layout": "free", "size": "card", "ground": "dots", "motion": {"pulse": "none"}, "alt": "Sony coding agent: a GitLab issue goes to a planner, an executor and a reviewer, and comes out as a merge request; tested on 40 real issues.", "nodes": [{"id": "issue", "label": "GitLab issue", "icon": "gitlab", "meta": "40 real issues", "at": [0.5, 0.12], "atCompact": [0.5, 0.12]}, {"id": "plan", "label": "Planner", "icon": "ui:list-checks", "meta": "Plans the change", "at": [0.5, 0.31], "atCompact": [0.5, 0.31]}, {"id": "exec", "label": "Executor", "icon": "ui:code", "meta": "Writes the code", "at": [0.5, 0.5], "atCompact": [0.5, 0.5]}, {"id": "rev", "label": "Reviewer", "icon": "ui:eye", "meta": "Checks the diff", "at": [0.5, 0.69], "atCompact": [0.5, 0.69]}, {"id": "mr", "label": "Merge request", "icon": "ui:git-pull-request", "meta": "Ready for review", "at": [0.5, 0.88], "atCompact": [0.5, 0.88], "done": true}], "edges": [{"from": "issue", "to": "plan"}, {"from": "plan", "to": "exec"}, {"from": "exec", "to": "rev"}, {"from": "rev", "to": "mr"}]}' data-diagram-zh='{"layout": "free", "size": "card", "ground": "dots", "motion": {"pulse": "none"}, "alt": "Sony 的编程智能体：GitLab issue 经过规划、执行、审查，变成 merge request；在 40 个真实 issue 上评测。", "nodes": [{"id": "issue", "label": "GitLab issue", "icon": "gitlab", "meta": "40 个真实 issue", "at": [0.5, 0.12], "atCompact": [0.5, 0.12]}, {"id": "plan", "label": "规划", "icon": "ui:list-checks", "meta": "拆解改动", "at": [0.5, 0.31], "atCompact": [0.5, 0.31]}, {"id": "exec", "label": "执行", "icon": "ui:code", "meta": "编写代码", "at": [0.5, 0.5], "atCompact": [0.5, 0.5]}, {"id": "rev", "label": "审查", "icon": "ui:eye", "meta": "检查 diff", "at": [0.5, 0.69], "atCompact": [0.5, 0.69]}, {"id": "mr", "label": "Merge request", "icon": "ui:git-pull-request", "meta": "等待评审", "at": [0.5, 0.88], "atCompact": [0.5, 0.88], "done": true}], "edges": [{"from": "issue", "to": "plan"}, {"from": "plan", "to": "exec"}, {"from": "exec", "to": "rev"}, {"from": "rev", "to": "mr"}]}'></div></div>
+      </div>
+    </div>
+  </section>
 </main>
-</div>
-<dialog id="lightbox" aria-labelledby="lightbox-caption">
-<form method="dialog" class="lightbox-form">
-<button type="submit" class="lightbox-close" data-aria-en="Close enlarged image" data-aria-zh="关闭放大图片" aria-label="Close enlarged image">×</button>
-</form>
-<figure>
-<img id="lightbox-img" alt="" />
-<figcaption id="lightbox-caption"></figcaption>
-</figure>
-<div class="lightbox-controls">
-<button type="button" id="lightbox-prev" data-aria-en="Previous image" data-aria-zh="上一张图片" aria-label="Previous image">‹</button>
-<p id="lightbox-count" aria-live="polite"></p>
-<button type="button" id="lightbox-next" data-aria-en="Next image" data-aria-zh="下一张图片" aria-label="Next image">›</button>
-</div>
-</dialog>
+
+<footer class="footer closing footer--dark ground-inverse" id="contact" aria-labelledby="close-h">
+  <div class="wrap">
+    <div class="closing__cta close--type">
+      <div class="section-head">
+        <h2 id="close-h"><span data-en="Juno, and the code behind it." data-zh="Juno，以及背后的代码。">Juno, and the code behind it.</span></h2>
+        <p><span data-en="Email me about agents, or read the code on GitHub." data-zh="聊智能体请发邮件，代码都在 GitHub 上。">Email me about agents, or read the code on GitHub.</span></p>
+      </div>
+      <a class="btn btn--primary btn--xl btn--wide" href="#juno"><span data-en="See Juno" data-zh="看看 Juno">See Juno</span><svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
+    </div>
+    <div class="closing__links">
+      <div class="grid">
+        <div class="span-4 stack-4">
+          <a class="nav__logo" href="#top"><span class="mark" data-mark="stack" aria-hidden="true"></span><span data-en="Nigel Leong" data-zh="梁证皓">Nigel Leong</span></a>
+          <p class="footer__lede" data-en="Agent software, from model to app." data-zh="智能体软件，从模型做到应用。">Agent software, from model to app.</p>
+        </div>
+        <div class="span-2 footer__col"><h3 data-en="Projects" data-zh="项目">Projects</h3><ul><li><a href="https://junoteam.app" data-en="Juno app" data-zh="Juno 应用">Juno app</a></li><li><a href="#pilot">Pilot</a></li><li><a href="#taiji">Taiji-2B</a></li></ul></div>
+        <div class="span-2 footer__col"><h3 data-en="Code" data-zh="代码">Code</h3><ul><li><a href="https://github.com/nigelleong0703/juno" data-en="Juno on GitHub" data-zh="GitHub 上的 Juno">Juno on GitHub</a></li><li><a href="https://github.com/nigelleong0703/pilot" data-en="Pilot on GitHub" data-zh="GitHub 上的 Pilot">Pilot on GitHub</a></li><li><a href="https://huggingface.co/nigelleong0703/Taiji-2B" data-en="Taiji-2B weights" data-zh="Taiji-2B 权重">Taiji-2B weights</a></li></ul></div>
+        <div class="span-2 footer__col"><h3 data-en="Contact" data-zh="联系">Contact</h3><ul><li><a href="mailto:nigelleong0703@outlook.com">nigelleong0703@outlook.com</a></li><li><a href="https://github.com/nigelleong0703">GitHub</a></li><li><a href="https://www.linkedin.com/in/nigelleongzhenghao/">LinkedIn</a></li></ul></div>
+        <div class="span-2 footer__col footer__col--page"><h3 data-en="Page" data-zh="本页">Page</h3><ul><li><a href="#experience" data-en="Experience" data-zh="经历">Experience</a></li><li><a href="#top" data-en="Back to top" data-zh="回到顶部">Back to top</a></li></ul></div>
+      </div>
+      <div class="footer__legal">
+        <span>&copy; 2026 <span data-en="Nigel Leong" data-zh="梁证皓">Nigel Leong</span></span>
+        <div class="socials"></div>
+        <span data-en="Product names and logos are trademarks of their owners" data-zh="产品名称与标志归各自所有者所有">Product names and logos are trademarks of their owners</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script type="module" src="assets/kit/system.js"></script>
+<script type="module" src="assets/kit/motion/motion.js"></script>
+<script type="module" src="assets/kit/layout/layout.js"></script>
+<script type="module" src="assets/kit/diagrams/mount.js"></script>
 </body>
 </html>
