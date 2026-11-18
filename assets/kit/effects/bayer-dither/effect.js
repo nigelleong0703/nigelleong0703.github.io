@@ -35,6 +35,9 @@ void main() {
 
   // the light: a large elliptical glow that drifts and breathes a little
   vec2 lp = u_light.xy + 0.05 * vec2(sin(t * 1.3), cos(t * 0.9 + 1.7));
+  // the light leans toward the pointer while it is over the frame
+  vec2 mp = (u_mouse.xy - 0.5 * u_res) / u_res.y;
+  lp = mix(lp, mp, 0.75 * u_mouse.z);
   vec2 d = q - lp;
   d = vec2(d.x * u_rot.x + d.y * u_rot.y, -d.x * u_rot.y + d.y * u_rot.x);
   d.y /= u_light.w;
@@ -121,6 +124,7 @@ export default {
       seed,
       uniforms,
       crisp: true,
+      pointer: true,
       maxDpr: 3,
       fps: 30,
       still: 2,
